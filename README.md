@@ -3,9 +3,12 @@
 Minimal Flask webhook service to:
 1. Receive GitHub `push` events
 2. Check if push is on `main`
-3. Get diff between `before` and `after` commits
-4. Summarize diff with DeepSeek
-5. Optionally publish summary to Confluence
+3. Discover all `.py` scripts at `head` and compare with changes
+4. Generate structured, enterprise-style technical docs per script via DeepSeek
+5. Keep Confluence in sync:
+   - create page for new script
+   - update page when script changes
+   - delete page when script is removed
 
 ## Quick start
 
@@ -13,7 +16,6 @@ Minimal Flask webhook service to:
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env
 python run.py
 ```
 
@@ -70,9 +72,9 @@ ENABLE_CONFLUENCE=false
 ```
 
 When a push webhook is processed, response JSON includes:
-- `deepseek.status` (`ok` or `failed`)
-- `deepseek.summary` (generated summary or failure reason)
-- `confluence.status` (will be `skipped` while disabled)
+- `results[]` (one item per changed python script)
+- `results[].deepseek.status` and `results[].deepseek.summary`
+- `results[].confluence.status` (`published`, `updated`, `skipped`, or `failed`)
 
 After DeepSeek is working, enable Confluence:
 
