@@ -2,6 +2,8 @@ import hashlib
 import hmac
 import json
 import threading
+import time
+import datetime as dt
 from flask import Blueprint, request, jsonify
 
 from app.config import Config
@@ -14,8 +16,21 @@ from app.services.confluence_service import get_script_page, upsert_script_page
 webhook_bp = Blueprint("webhook", __name__)
 
 
+def _now_utc() -> str:
+    return dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+
+
+def _log(message: str) -> None:
+    print(f"[{_now_utc()}] {message}", flush=True)
+
+
 def process_push_event(context: dict) -> None:
+    delivery_id = context.get("delivery_id", "n/a")
+    repo_name = context.get("repo_full_name", "unknown")
+    webhook_start = time.perf_counter()
     try:
+        _log(f"[webhook:{delivery_id}] start repo={repo_name} ref={context.get('ref')}")
+        _log(f"[webhook:{delivery_id}] scanning python files and commit diff...")
         repo_scripts = get_repository_python_files(
             owner=context["owner"],
             repo=context["repo"],
@@ -24,42 +39,78 @@ def process_push_event(context: dict) -> None:
         )
 
         if not repo_scripts:
-            print(f"[webhook] no changed python files: {context.get('repo_full_name')}")
+            total_ms = (time.perf_counter() - webhook_start) * 1000
+            _log(f"[webhook:{delivery_id}] no changed python files repo={repo_name} total_ms={total_ms:.0f}")
             return
 
-        for file_change in repo_scripts:
+        total_scripts = len(repo_scripts)
+        _log(f"[webhook:{delivery_id}] discovered_scripts={total_scripts}; starting documentation pipeline")
+
+        for idx, file_change in enumerate(repo_scripts, start=1):
+            script_start = time.perf_counter()
             script_name = file_change.get("script_name", "")
             status = file_change.get("status", "unchanged")
+            _log(
+                f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} status={status} "
+                "step=checking_existing_page"
+            )
             existing_page = get_script_page(script_name)
 
             if status == "unchanged" and existing_page:
-                print(f"[webhook] script={script_name} deepseek=skipped confluence=already_synced")
+                elapsed_ms = (time.perf_counter() - script_start) * 1000
+                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} deepseek=skipped")
+                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} confluence=already_synced")
+                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} script_ms={elapsed_ms:.0f}")
                 continue
 
             if status == "removed":
+                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} step=deleting_confluence_page")
                 confluence_result = upsert_script_page(summary="", context=context, file_change=file_change)
-                print(f"[webhook] script={script_name} deepseek=skipped confluence={confluence_result.get('status')}")
+                elapsed_ms = (time.perf_counter() - script_start) * 1000
+                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} deepseek=skipped")
+                _log(
+                    f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
+                    f"confluence={confluence_result.get('status')}"
+                )
+                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} script_ms={elapsed_ms:.0f}")
                 continue
 
+            _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} step=deepseek_summary")
+            deepseek_start = time.perf_counter()
             summary = generate_script_summary(file_change=file_change, context=context)
+            deepseek_ms = (time.perf_counter() - deepseek_start) * 1000
             deepseek_ok = not summary.startswith("[DeepSeek disabled]") and not summary.startswith("DeepSeek ")
             if not deepseek_ok:
-                print(f"[webhook] script={script_name} deepseek_error={summary[:300]}")
+                _log(
+                    f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
+                    f"deepseek=failed deepseek_ms={deepseek_ms:.0f} error={summary[:300]}"
+                )
 
+            confluence_start = time.perf_counter()
             if Config.ENABLE_CONFLUENCE and deepseek_ok:
+                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} step=confluence_upsert")
                 confluence_result = upsert_script_page(summary=summary, context=context, file_change=file_change)
             elif not Config.ENABLE_CONFLUENCE:
                 confluence_result = {"status": "skipped", "reason": "Confluence disabled (set ENABLE_CONFLUENCE=true)"}
             else:
                 confluence_result = {"status": "skipped", "reason": "DeepSeek summary failed"}
+            confluence_ms = (time.perf_counter() - confluence_start) * 1000
+            script_ms = (time.perf_counter() - script_start) * 1000
 
-            print(
-                f"[webhook] script={script_name} "
-                f"deepseek={'ok' if deepseek_ok else 'failed'} "
-                f"confluence={confluence_result.get('status')}"
+            _log(
+                f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
+                f"deepseek={'ok' if deepseek_ok else 'failed'} deepseek_ms={deepseek_ms:.0f}"
             )
+            _log(
+                f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
+                f"confluence={confluence_result.get('status')} confluence_ms={confluence_ms:.0f}"
+            )
+            _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} script_ms={script_ms:.0f}")
     except Exception as exc:
-        print(f"[webhook] processing error: {exc}")
+        _log(f"[webhook:{delivery_id}] processing_error={exc}")
+    finally:
+        total_ms = (time.perf_counter() - webhook_start) * 1000
+        _log(f"[webhook:{delivery_id}] completed repo={repo_name} total_ms={total_ms:.0f}")
 
 
 def is_valid_signature(raw_body: bytes, signature_header: str) -> bool:
@@ -130,6 +181,7 @@ def github_webhook():
         return jsonify({"error": "invalid payload"}), 400
 
     context = extract_push_context(payload)
+    context["delivery_id"] = delivery_id
 
     if not context["is_main_branch"]:
         return jsonify({"message": "ignored: not main branch"}), 200
