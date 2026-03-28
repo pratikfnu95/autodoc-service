@@ -1,12 +1,13 @@
 import base64
 import datetime as dt
 import html
+import os
 import re
 import requests
 
 from app.config import Config
 
-AI_SUMMARY_HEADER = "<h2><strong>🧠 AI Technical Summary</strong></h2>"
+AI_SUMMARY_HEADER = "<h2><strong>Technical Summary</strong></h2>"
 SECTION_ORDER = [
     "Purpose",
     "High-Level Flow",
@@ -14,6 +15,7 @@ SECTION_ORDER = [
     "Input/Output Behavior",
     "Source to Target Mapping",
     "Recent Change Summary",
+    "Jira Story Traceability",
     "Risks / Follow-ups",
 ]
 
@@ -26,6 +28,8 @@ SECTION_ALIASES = {
     "input output behavior": "Input/Output Behavior",
     "source to target mapping": "Source to Target Mapping",
     "recent change summary": "Recent Change Summary",
+    "jira story traceability": "Jira Story Traceability",
+    "jira traceability": "Jira Story Traceability",
     "risks / follow-ups": "Risks / Follow-ups",
     "risks/follow-ups": "Risks / Follow-ups",
 }
@@ -38,14 +42,14 @@ DEFAULT_TH_STYLE = (
 )
 TABLE_STYLE_FRAGMENT = (
     "width:100%;max-width:100%;table-layout:fixed;border-collapse:collapse;"
-    "background:#eef4ff;border:1px solid #c8d9f1;margin:8px 0;"
+    "background:#eef4ff;border:1px solid #9db9df;margin:10px 0;font-size:13px;line-height:1.4;"
 )
 TH_STYLE_FRAGMENT = (
-    "background:#2f6ea5;color:#ffffff;border:1px solid #c8d9f1;"
+    "background:#1f5f99;color:#ffffff;border:1px solid #9db9df;"
     "padding:8px;text-align:left;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;"
 )
 TD_STYLE_FRAGMENT = (
-    "border:1px solid #c8d9f1;padding:8px;background:#ffffff;vertical-align:top;"
+    "border:1px solid #c7daf2;padding:8px;background:#ffffff;vertical-align:top;"
     "overflow-wrap:anywhere;word-break:break-word;"
 )
 
@@ -87,6 +91,56 @@ def _normalize_section_name(name: str) -> str:
     return SECTION_ALIASES.get(compact, name.strip())
 
 
+def _split_token_words(token: str) -> list[str]:
+    if not token:
+        return []
+    token = re.sub(r"[^A-Za-z0-9]+", " ", token).strip()
+    if not token:
+        return []
+    token = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", token)
+    token = re.sub(r"([A-Za-z])([0-9])", r"\1 \2", token)
+    token = re.sub(r"([0-9])([A-Za-z])", r"\1 \2", token)
+    parts = token.split()
+
+    # Fallback splitter for single all-lowercase compound words.
+    common_words = [
+        "policy", "transaction", "account", "manager", "service", "config", "route",
+        "summary", "source", "target", "mapping", "temp", "view", "calculator",
+        "todo", "github", "confluence", "deepseek", "script", "notebook", "diff",
+    ]
+    if len(parts) == 1 and re.fullmatch(r"[a-z]+", parts[0] or ""):
+        raw = parts[0]
+        segmented = []
+        i = 0
+        while i < len(raw):
+            match = ""
+            for word in common_words:
+                if raw.startswith(word, i) and len(word) > len(match):
+                    match = word
+            if match:
+                segmented.append(match)
+                i += len(match)
+            else:
+                segmented.append(raw[i:])
+                break
+        if len(segmented) > 1:
+            parts = segmented
+
+    return parts
+
+
+def _humanize_script_title(file_change: dict) -> str:
+    script_name = (file_change.get("script_name") or "").strip()
+    path = (file_change.get("path") or "").strip()
+    candidate = script_name or os.path.splitext(os.path.basename(path))[0]
+    if not candidate:
+        return "Script"
+    words = _split_token_words(candidate.replace("_", " ").replace("-", " "))
+    if not words:
+        return candidate.title()
+    return " ".join(word.capitalize() for word in words)
+
+
 def _extract_ai_summary_from_page_body(body: str) -> str:
     if not body:
         return ""
@@ -121,25 +175,41 @@ def _inject_style_into_opening_tag(opening_tag: str, style_fragment: str) -> str
     return opening_tag[:-1] + f' style="{style_fragment}">'
 
 
+def _inject_attr_into_opening_tag(opening_tag: str, attr_name: str, attr_value: str) -> str:
+    attr_pattern = rf"\b{re.escape(attr_name)}\s*="
+    if re.search(attr_pattern, opening_tag, flags=re.IGNORECASE):
+        return opening_tag
+    return opening_tag[:-1] + f' {attr_name}="{attr_value}">'
+
+
 def _enforce_table_styles(summary_html: str) -> str:
     if not summary_html:
         return summary_html
 
     summary_html = re.sub(
         r"<table\b[^>]*>",
-        lambda m: _inject_style_into_opening_tag(m.group(0), TABLE_STYLE_FRAGMENT),
+        lambda m: _inject_style_into_opening_tag(
+            _inject_attr_into_opening_tag(m.group(0), "data-layout", "default"),
+            TABLE_STYLE_FRAGMENT,
+        ),
         summary_html,
         flags=re.IGNORECASE,
     )
     summary_html = re.sub(
         r"<th\b[^>]*>",
-        lambda m: _inject_style_into_opening_tag(m.group(0), TH_STYLE_FRAGMENT),
+        lambda m: _inject_style_into_opening_tag(
+            _inject_attr_into_opening_tag(m.group(0), "bgcolor", "#1f5f99"),
+            TH_STYLE_FRAGMENT,
+        ),
         summary_html,
         flags=re.IGNORECASE,
     )
     summary_html = re.sub(
         r"<td\b[^>]*>",
-        lambda m: _inject_style_into_opening_tag(m.group(0), TD_STYLE_FRAGMENT),
+        lambda m: _inject_style_into_opening_tag(
+            _inject_attr_into_opening_tag(m.group(0), "bgcolor", "#ffffff"),
+            TD_STYLE_FRAGMENT,
+        ),
         summary_html,
         flags=re.IGNORECASE,
     )
@@ -324,19 +394,20 @@ def _build_table_html(headers: list[str], rows: list[dict]) -> str:
     if not headers:
         return "<p>N/A</p>"
 
-    thead_html = "".join(f"<th {DEFAULT_TH_STYLE}>{html.escape(header)}</th>" for header in headers)
+    thead_html = "".join(f'<th bgcolor="#1f5f99" {DEFAULT_TH_STYLE}>{html.escape(header)}</th>' for header in headers)
     body_parts = []
     for idx, row in enumerate(rows):
-        row_bg = "#ffffff" if idx % 2 == 0 else "#eef4ff"
+        row_bg = "#ffffff" if idx % 2 == 0 else "#edf4ff"
         tds = "".join(
-            f'<td style="border:1px solid #c8d9f1;padding:8px;background:{row_bg};">'
+            f'<td bgcolor="{row_bg}" style="border:1px solid #c7daf2;padding:8px;background:{row_bg};'
+            f'vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">'
             f"{html.escape((row.get(header) or '').strip())}</td>"
             for header in headers
         )
         body_parts.append(f"<tr>{tds}</tr>")
 
     return (
-        f"<table {DEFAULT_TABLE_STYLE}>"
+        f'<table data-layout="default" {DEFAULT_TABLE_STYLE}>'
         f"<thead><tr>{thead_html}</tr></thead>"
         f"<tbody>{''.join(body_parts)}</tbody>"
         "</table>"
@@ -410,7 +481,9 @@ def _build_recent_change_audit(
     timestamp = dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     short_sha = (context.get("after", "") or "")[:8]
     file_path = file_change.get("path", "")
-    new_entry = f"{timestamp} [{short_sha}] {file_path}: {latest_change}"
+    jira_ticket = (context.get("jira_ticket_id") or "").strip().upper()
+    jira_suffix = f" [Jira: {jira_ticket}]" if jira_ticket else ""
+    new_entry = f"{timestamp} [{short_sha}] {file_path}: {latest_change}{jira_suffix}"
 
     existing_items = _extract_recent_items(existing_html)
     deduped = []
@@ -421,6 +494,66 @@ def _build_recent_change_audit(
     latest_three = deduped[:3]
     li_html = "".join(f"<li>{html.escape(item)}</li>" for item in latest_three)
     return f"<ul>{li_html}</ul>"
+
+
+def _extract_jira_audit_items(section_html: str) -> list[dict]:
+    items = []
+    if not section_html:
+        return items
+
+    for li_html in re.findall(r"<li\b[^>]*>(.*?)</li>", section_html, flags=re.IGNORECASE | re.DOTALL):
+        text = _strip_html_tags(li_html)
+        if not text:
+            continue
+        ticket_match = re.search(r"\b([A-Z][A-Z0-9]+(?:-[0-9]+|[0-9]+))\b", text)
+        url_match = re.search(r"https?://\S+", text)
+        items.append(
+            {
+                "text": text,
+                "ticket": ticket_match.group(1) if ticket_match else "",
+                "url": url_match.group(0) if url_match else "",
+            }
+        )
+    return items
+
+
+def _build_jira_traceability_section(existing_html: str, context: dict, file_change: dict) -> str:
+    jira_ticket = (context.get("jira_ticket_id") or "").strip().upper()
+    jira_url = (context.get("jira_ticket_url") or "").strip()
+    timestamp = dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    short_sha = (context.get("after", "") or "")[:8]
+    file_path = file_change.get("path", "")
+
+    existing_items = _extract_jira_audit_items(existing_html)
+    merged = []
+
+    if jira_ticket and jira_url:
+        entry_text = f"{timestamp} [{short_sha}] {file_path} updated via {jira_ticket} ({jira_url})"
+        merged.append({"text": entry_text, "ticket": jira_ticket, "url": jira_url})
+
+    for item in existing_items:
+        if item.get("text") and item not in merged:
+            merged.append(item)
+
+    if not merged:
+        return "<p>No Jira-linked change detected from branch name in this update.</p>"
+
+    latest = merged[: max(1, Config.JIRA_AUDIT_LIMIT)]
+    li_parts = []
+    for item in latest:
+        text = item.get("text", "")
+        ticket = item.get("ticket", "")
+        url = item.get("url", "")
+        if ticket and url:
+            text = text.replace(f"{ticket} ({url})", "").strip()
+            li_parts.append(
+                f"<li>{html.escape(text)} "
+                f'<a href="{html.escape(url)}"><strong>{html.escape(ticket)}</strong></a></li>'
+            )
+        else:
+            li_parts.append(f"<li>{html.escape(text)}</li>")
+
+    return "<ul>" + "".join(li_parts) + "</ul>"
 
 
 def _merge_summary_html(existing_summary_html: str, new_summary_html: str, context: dict, file_change: dict) -> str:
@@ -440,6 +573,12 @@ def _merge_summary_html(existing_summary_html: str, new_summary_html: str, conte
             merged_content = _build_recent_change_audit(
                 existing_html=old_content,
                 new_html=new_content,
+                context=context,
+                file_change=file_change,
+            )
+        elif section_name == "Jira Story Traceability":
+            merged_content = _build_jira_traceability_section(
+                existing_html=old_content,
                 context=context,
                 file_change=file_change,
             )
@@ -465,7 +604,7 @@ def _build_page_body(summary_html: str, context: dict, file_change: dict) -> str
     summary_html = _enforce_table_styles(summary_html)
 
     return (
-        "<h2><strong>📘 Script Documentation</strong></h2>"
+        "<h2><strong>Script Documentation</strong></h2>"
         "<table><tbody>"
         f"<tr><th><strong>Repository</strong></th><td>{safe_repo}</td></tr>"
         f"<tr><th><strong>Script Path</strong></th><td><code>{safe_file_path}</code></td></tr>"
@@ -474,7 +613,7 @@ def _build_page_body(summary_html: str, context: dict, file_change: dict) -> str
         f"<tr><th><strong>Change Type</strong></th><td>{safe_change_type}</td></tr>"
         f"<tr><th><strong>Last Updated</strong></th><td>{timestamp}</td></tr>"
         "</tbody></table>"
-        "<h2><strong>🧠 AI Technical Summary</strong></h2>"
+        "<h2><strong>Technical Summary</strong></h2>"
         f"{summary_html}"
     )
 
@@ -588,7 +727,7 @@ def upsert_script_page(summary: str, context: dict, file_change: dict) -> dict:
     if not (Config.CONFLUENCE_BASE_URL and Config.CONFLUENCE_EMAIL and Config.CONFLUENCE_API_TOKEN and Config.CONFLUENCE_SPACE_KEY):
         return {"status": "skipped", "reason": "Confluence config missing"}
 
-    title = file_change.get("script_name", "script")
+    title = _humanize_script_title(file_change)
     headers = _auth_headers()
     existing = _find_existing_page(title=title, headers=headers)
 

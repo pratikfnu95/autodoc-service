@@ -44,6 +44,7 @@ def generate_script_summary(file_change: dict, context: dict) -> str:
         "- <h3>Input/Output Behavior</h3>\n"
         "- <h3>Source to Target Mapping</h3> as an HTML table with columns: Source Object, Source Field/Expression, Transformation/Rule, Target Object, Target Field\n"
         "- <h3>Recent Change Summary</h3>\n"
+        "- <h3>Jira Story Traceability</h3>\n"
         "- <h3>Risks / Follow-ups</h3>\n"
         "Be concrete and technical. Mention exact function names and return behavior.\n"
         "For dependency analysis, inspect the main script and all related files provided below.\n"

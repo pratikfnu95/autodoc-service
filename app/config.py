@@ -10,6 +10,8 @@ class Config:
     GITHUB_WEBHOOK_SECRET = os.getenv("GITHUB_WEBHOOK_SECRET", "")
     ALLOW_UNSIGNED_WEBHOOKS = os.getenv("ALLOW_UNSIGNED_WEBHOOKS", "false").lower() == "true"
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+    JIRA_BASE_URL = os.getenv("JIRA_BASE_URL", "https://pratikfnu.atlassian.net")
+    JIRA_AUDIT_LIMIT = int(os.getenv("JIRA_AUDIT_LIMIT", "5"))
 
     DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
     DEEPSEEK_API_BASE = os.getenv("DEEPSEEK_API_BASE", "https://api.deepseek.com")

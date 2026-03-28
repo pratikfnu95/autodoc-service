@@ -30,6 +30,10 @@ def process_push_event(context: dict) -> None:
     webhook_start = time.perf_counter()
     try:
         _log(f"[webhook:{delivery_id}] start repo={repo_name} ref={context.get('ref')}")
+        _log(
+            f"[webhook:{delivery_id}] source_branch={context.get('source_branch') or 'n/a'} "
+            f"jira_ticket={context.get('jira_ticket_id') or 'n/a'}"
+        )
         _log(f"[webhook:{delivery_id}] scanning python files and commit diff...")
         repo_scripts = get_repository_python_files(
             owner=context["owner"],
