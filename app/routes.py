@@ -3,7 +3,6 @@ import hmac
 import json
 import threading
 import time
-import datetime as dt
 from flask import Blueprint, request, jsonify
 
 from app.config import Config
@@ -16,25 +15,27 @@ from app.services.confluence_service import get_script_page, upsert_script_page
 webhook_bp = Blueprint("webhook", __name__)
 
 
-def _now_utc() -> str:
-    return dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-
-
 def _log(message: str) -> None:
-    print(f"[{_now_utc()}] {message}", flush=True)
+    print(message, flush=True)
+
+
+def _ms_to_s(ms: float) -> str:
+    return f"{(ms / 1000):.2f}s"
 
 
 def process_push_event(context: dict) -> None:
-    delivery_id = context.get("delivery_id", "n/a")
     repo_name = context.get("repo_full_name", "unknown")
     webhook_start = time.perf_counter()
+    summary_counts = {"updated": 0, "skipped": 0, "failed": 0, "pending_review": 0, "deleted": 0}
+    review_links = []
     try:
-        _log(f"[webhook:{delivery_id}] start repo={repo_name} ref={context.get('ref')}")
-        _log(
-            f"[webhook:{delivery_id}] source_branch={context.get('source_branch') or 'n/a'} "
-            f"jira_ticket={context.get('jira_ticket_id') or 'n/a'}"
-        )
-        _log(f"[webhook:{delivery_id}] scanning python files and commit diff...")
+        _log("")
+        _log("=== Autodoc Run Start ===")
+        _log(f"Repo: {repo_name}")
+        _log(f"Branch: {context.get('ref')}")
+        _log(f"Source branch: {context.get('source_branch') or 'n/a'}")
+        _log(f"Jira ticket: {context.get('jira_ticket_id') or 'n/a'}")
+        _log("Scanning python files and commit diff...")
         repo_scripts = get_repository_python_files(
             owner=context["owner"],
             repo=context["repo"],
@@ -44,55 +45,70 @@ def process_push_event(context: dict) -> None:
 
         if not repo_scripts:
             total_ms = (time.perf_counter() - webhook_start) * 1000
-            _log(f"[webhook:{delivery_id}] no changed python files repo={repo_name} total_ms={total_ms:.0f}")
+            _log(f"No changed python files. Total time: {_ms_to_s(total_ms)}")
+            _log("=== Autodoc Run Complete ===")
             return
 
         total_scripts = len(repo_scripts)
-        _log(f"[webhook:{delivery_id}] discovered_scripts={total_scripts}; starting documentation pipeline")
+        _log(f"Discovered scripts: {total_scripts}")
+        _log("Starting documentation pipeline...")
 
         for idx, file_change in enumerate(repo_scripts, start=1):
             script_start = time.perf_counter()
             script_name = file_change.get("script_name", "")
             status = file_change.get("status", "unchanged")
-            _log(
-                f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} status={status} "
-                "step=checking_existing_page"
-            )
+            _log(f"Processing [{idx}/{total_scripts}] {script_name} (status={status})")
             existing_page = get_script_page(script_name)
 
             if status == "unchanged" and existing_page:
                 elapsed_ms = (time.perf_counter() - script_start) * 1000
-                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} deepseek=skipped")
-                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} confluence=already_synced")
-                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} script_ms={elapsed_ms:.0f}")
+                summary_counts["skipped"] += 1
+                _log(
+                    f"RESULT | script={script_name} | status=SKIPPED | reason=already_synced | time={_ms_to_s(elapsed_ms)}"
+                )
                 continue
 
             if status == "removed":
-                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} step=deleting_confluence_page")
+                _log(f"Running | script={script_name} | stage=deleting_confluence_page")
                 confluence_result = upsert_script_page(summary="", context=context, file_change=file_change)
                 elapsed_ms = (time.perf_counter() - script_start) * 1000
-                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} deepseek=skipped")
-                _log(
-                    f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
-                    f"confluence={confluence_result.get('status')}"
-                )
-                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} script_ms={elapsed_ms:.0f}")
+                result_status = (confluence_result.get("status") or "").lower()
+                if result_status == "deleted":
+                    summary_counts["deleted"] += 1
+                    _log(f"RESULT | script={script_name} | status=DELETED | time={_ms_to_s(elapsed_ms)}")
+                elif result_status == "pending_review":
+                    summary_counts["pending_review"] += 1
+                    review_url = confluence_result.get("review_url", "")
+                    if review_url:
+                        review_links.append({"script": script_name, "url": review_url})
+                    _log(
+                        f"RESULT | script={script_name} | status=PENDING_REVIEW | reason=delete_request | "
+                        f"time={_ms_to_s(elapsed_ms)}"
+                    )
+                elif result_status == "skipped":
+                    summary_counts["skipped"] += 1
+                    _log(
+                        f"RESULT | script={script_name} | status=SKIPPED | "
+                        f"reason={confluence_result.get('reason', 'n/a')} | time={_ms_to_s(elapsed_ms)}"
+                    )
+                else:
+                    summary_counts["failed"] += 1
+                    _log(
+                        f"RESULT | script={script_name} | status=FAILED | "
+                        f"reason={confluence_result.get('reason', result_status or 'delete_failed')} | "
+                        f"time={_ms_to_s(elapsed_ms)}"
+                    )
                 continue
 
-            _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} step=deepseek_summary")
+            _log(f"Running | script={script_name} | stage=summarizing")
             deepseek_start = time.perf_counter()
             summary = generate_script_summary(file_change=file_change, context=context)
             deepseek_ms = (time.perf_counter() - deepseek_start) * 1000
             deepseek_ok = not summary.startswith("[DeepSeek disabled]") and not summary.startswith("DeepSeek ")
-            if not deepseek_ok:
-                _log(
-                    f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
-                    f"deepseek=failed deepseek_ms={deepseek_ms:.0f} error={summary[:300]}"
-                )
 
             confluence_start = time.perf_counter()
             if Config.ENABLE_CONFLUENCE and deepseek_ok:
-                _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} step=confluence_upsert")
+                _log(f"Running | script={script_name} | stage=confluence_publish")
                 confluence_result = upsert_script_page(summary=summary, context=context, file_change=file_change)
             elif not Config.ENABLE_CONFLUENCE:
                 confluence_result = {"status": "skipped", "reason": "Confluence disabled (set ENABLE_CONFLUENCE=true)"}
@@ -101,20 +117,63 @@ def process_push_event(context: dict) -> None:
             confluence_ms = (time.perf_counter() - confluence_start) * 1000
             script_ms = (time.perf_counter() - script_start) * 1000
 
-            _log(
-                f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
-                f"deepseek={'ok' if deepseek_ok else 'failed'} deepseek_ms={deepseek_ms:.0f}"
-            )
-            _log(
-                f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} "
-                f"confluence={confluence_result.get('status')} confluence_ms={confluence_ms:.0f}"
-            )
-            _log(f"[webhook:{delivery_id}] [{idx}/{total_scripts}] script={script_name} script_ms={script_ms:.0f}")
+            if not deepseek_ok:
+                summary_counts["failed"] += 1
+                _log(
+                    f"RESULT | script={script_name} | status=FAILED | reason=deepseek_error | "
+                    f"deepseek={_ms_to_s(deepseek_ms)} | total={_ms_to_s(script_ms)}"
+                )
+                continue
+
+            result_status = (confluence_result.get("status") or "").lower()
+            if result_status == "pending_review":
+                summary_counts["pending_review"] += 1
+                review_url = confluence_result.get("review_url", "")
+                if review_url:
+                    review_links.append({"script": script_name, "url": review_url})
+                _log(
+                    f"RESULT | script={script_name} | status=PENDING_REVIEW | "
+                    f"deepseek={_ms_to_s(deepseek_ms)} | review_draft={_ms_to_s(confluence_ms)} | total={_ms_to_s(script_ms)}"
+                )
+            elif result_status in ("updated", "published"):
+                summary_counts["updated"] += 1
+                _log(
+                    f"RESULT | script={script_name} | status=UPDATED | "
+                    f"deepseek={_ms_to_s(deepseek_ms)} | publish={_ms_to_s(confluence_ms)} | total={_ms_to_s(script_ms)}"
+                )
+            elif result_status == "skipped":
+                summary_counts["skipped"] += 1
+                _log(
+                    f"RESULT | script={script_name} | status=SKIPPED | "
+                    f"reason={confluence_result.get('reason', 'n/a')} | total={_ms_to_s(script_ms)}"
+                )
+            else:
+                summary_counts["failed"] += 1
+                _log(
+                    f"RESULT | script={script_name} | status=FAILED | "
+                    f"reason={confluence_result.get('reason', result_status or 'unknown')} | total={_ms_to_s(script_ms)}"
+                )
     except Exception as exc:
-        _log(f"[webhook:{delivery_id}] processing_error={exc}")
+        summary_counts["failed"] += 1
+        _log(f"RUN ERROR | {exc}")
     finally:
         total_ms = (time.perf_counter() - webhook_start) * 1000
-        _log(f"[webhook:{delivery_id}] completed repo={repo_name} total_ms={total_ms:.0f}")
+        if review_links:
+            _log("")
+            _log("Review documents:")
+            for item in review_links:
+                _log(f"- {item['script']}: {item['url']}")
+        _log("")
+        _log(
+            "RUN SUMMARY | "
+            f"pending_review={summary_counts['pending_review']} | "
+            f"updated={summary_counts['updated']} | "
+            f"deleted={summary_counts['deleted']} | "
+            f"skipped={summary_counts['skipped']} | "
+            f"failed={summary_counts['failed']} | "
+            f"total_time={_ms_to_s(total_ms)}"
+        )
+        _log("=== Autodoc Run Complete ===")
 
 
 def is_valid_signature(raw_body: bytes, signature_header: str) -> bool:
