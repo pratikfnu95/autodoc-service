@@ -838,15 +838,24 @@ def upsert_script_page(summary: str, context: dict, file_change: dict) -> dict:
             return {"status": "skipped", "reason": "page not found for removed script"}
         return _delete_page(existing=existing, headers=headers)
 
+    # Build a normalized summary for both create and update paths so sections
+    # like Jira Story Traceability are deterministic even on first publish.
+    normalized_summary = _merge_summary_html(
+        existing_summary_html="",
+        new_summary_html=summary,
+        context=context,
+        file_change=file_change,
+    )
+
     if existing:
         return _update_page(
             existing=existing,
             title=title,
-            summary_html=summary,
+            summary_html=normalized_summary,
             context=context,
             file_change=file_change,
             headers=headers,
         )
 
-    body = _build_page_body(summary_html=summary, context=context, file_change=file_change)
+    body = _build_page_body(summary_html=normalized_summary, context=context, file_change=file_change)
     return _create_page(title=title, body=body, headers=headers)
