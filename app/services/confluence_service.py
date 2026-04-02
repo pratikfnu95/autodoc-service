@@ -363,6 +363,72 @@ def _dedupe_dependency_rows_by_reference(headers: list[str], rows: list[dict]) -
     return [merged_by_ref[key] for key in order]
 
 
+def _dependency_ref_variants(ref_text: str) -> set[str]:
+    raw = (ref_text or "").strip()
+    if not raw:
+        return set()
+
+    normalized = _normalize_dependency_ref(raw)
+    variants = {normalized}
+
+    # Treat as path-like first (preserve extensions like .py).
+    path_like = normalized.replace("\\", "/").strip("/")
+    if path_like:
+        variants.add(path_like)
+        variants.add(path_like.removesuffix(".py"))
+        variants.add(path_like.removesuffix(".ipynb"))
+        base = path_like.rsplit("/", 1)[-1]
+        variants.add(base)
+        variants.add(base.removesuffix(".py"))
+        variants.add(base.removesuffix(".ipynb"))
+
+    # Treat as module-like only when it does not look like a file path.
+    if "/" not in normalized and not normalized.endswith(".py") and not normalized.endswith(".ipynb"):
+        module_like = normalized.replace(".", "/")
+        variants.add(module_like)
+        variants.add(module_like.removesuffix(".py"))
+        base = module_like.rsplit("/", 1)[-1]
+        variants.add(base)
+        variants.add(base.removesuffix(".py"))
+
+    return {item for item in variants if item}
+
+
+def _allowed_dependency_variants(file_change: dict) -> set[str]:
+    allowed = set()
+    for item in file_change.get("related_files", []):
+        path = (item.get("path") or "").strip()
+        if not path:
+            continue
+        allowed.update(_dependency_ref_variants(path))
+    return allowed
+
+
+def _filter_cross_dependency_rows_to_files(headers: list[str], rows: list[dict], file_change: dict) -> list[dict]:
+    if not rows:
+        return rows
+
+    ref_header = None
+    for header in headers:
+        if "referenced" in header.lower() or "dependency" in header.lower() or "script" in header.lower():
+            ref_header = header
+            break
+    if not ref_header:
+        ref_header = headers[0]
+
+    allowed = _allowed_dependency_variants(file_change)
+    if not allowed:
+        return []
+
+    filtered = []
+    for row in rows:
+        ref_value = row.get(ref_header, "")
+        ref_variants = _dependency_ref_variants(ref_value)
+        if ref_variants & allowed:
+            filtered.append(row)
+    return filtered
+
+
 def _merge_table_rows(existing_rows: list[dict], new_rows: list[dict], key_builder) -> list[dict]:
     merged_rows = []
     key_order = []
@@ -414,12 +480,17 @@ def _build_table_html(headers: list[str], rows: list[dict]) -> str:
     )
 
 
-def _merge_cross_dependency_section(existing_html: str, new_html: str) -> str:
+def _merge_cross_dependency_section(existing_html: str, new_html: str, file_change: dict) -> str:
     headers_old, rows_old = _extract_table_rows(existing_html)
     headers_new, rows_new = _extract_table_rows(new_html)
     headers = headers_new or headers_old
     if not headers:
         return new_html or existing_html or "<p>N/A</p>"
+
+    rows_old = _filter_cross_dependency_rows_to_files(headers=headers, rows=rows_old, file_change=file_change)
+    rows_new = _filter_cross_dependency_rows_to_files(headers=headers, rows=rows_new, file_change=file_change)
+    if not rows_old and not rows_new:
+        return "<p>No cross-file script dependencies detected.</p>"
 
     merged_rows = _merge_table_rows(
         existing_rows=rows_old,
@@ -566,7 +637,7 @@ def _merge_summary_html(existing_summary_html: str, new_summary_html: str, conte
         new_content = new_sections.get(section_name, "").strip()
 
         if section_name == "Cross-File Dependencies":
-            merged_content = _merge_cross_dependency_section(old_content, new_content)
+            merged_content = _merge_cross_dependency_section(old_content, new_content, file_change=file_change)
         elif section_name == "Source to Target Mapping":
             merged_content = _merge_source_target_section(old_content, new_content)
         elif section_name == "Recent Change Summary":

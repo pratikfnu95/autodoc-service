@@ -108,6 +108,26 @@ def _extract_imported_modules(content: str) -> set[str]:
     return modules
 
 
+def _extract_run_references(content: str) -> set[str]:
+    refs = set()
+    for raw_line in content.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+
+        # Support plain `%run ./x` and Databricks-exported `# MAGIC %run ./x`.
+        magic_line = line
+        if line.lower().startswith("# magic"):
+            magic_line = line[len("# magic") :].strip()
+
+        run_match = re.match(r"^%run\s+([^\s#]+)", magic_line, flags=re.IGNORECASE)
+        if not run_match:
+            continue
+        refs.add(run_match.group(1).strip().strip("'\""))
+
+    return refs
+
+
 def _module_candidate_paths(module: str, current_path: str) -> list[str]:
     candidates = []
     current_dir_parts = current_path.rsplit("/", 1)[0].split("/") if "/" in current_path else []
@@ -141,6 +161,44 @@ def _module_candidate_paths(module: str, current_path: str) -> list[str]:
     return candidates
 
 
+def _run_ref_candidate_paths(run_ref: str, current_path: str) -> list[str]:
+    ref = (run_ref or "").strip()
+    if not ref:
+        return []
+
+    current_dir = current_path.rsplit("/", 1)[0] if "/" in current_path else ""
+    candidates = []
+
+    def _with_py(path: str) -> list[str]:
+        path = path.strip("/")
+        if not path:
+            return []
+        if path.endswith(".py"):
+            return [path]
+        return [path, f"{path}.py"]
+
+    if ref.startswith("./"):
+        rel = ref[2:]
+        base = f"{current_dir}/{rel}" if current_dir else rel
+        candidates.extend(_with_py(base))
+    elif ref.startswith("../"):
+        up_count = 0
+        temp = ref
+        while temp.startswith("../"):
+            up_count += 1
+            temp = temp[3:]
+        current_parts = current_dir.split("/") if current_dir else []
+        base_parts = current_parts[:-up_count] if up_count <= len(current_parts) else []
+        base = "/".join(base_parts + ([temp] if temp else []))
+        candidates.extend(_with_py(base))
+    else:
+        candidates.extend(_with_py(ref))
+        if not ref.startswith("app/"):
+            candidates.extend(_with_py(f"app/{ref}"))
+
+    return [path for path in candidates if path]
+
+
 def _resolve_related_python_files(current_path: str, content: str, all_paths: list[str]) -> list[str]:
     path_set = set(all_paths)
     basenames = {path.rsplit("/", 1)[-1]: path for path in all_paths}
@@ -158,6 +216,22 @@ def _resolve_related_python_files(current_path: str, content: str, all_paths: li
             module_tail = module.lstrip(".").split(".")[-1]
             if module_tail:
                 resolved = basenames.get(f"{module_tail}.py")
+
+        if resolved and resolved != current_path and resolved not in seen:
+            related.append(resolved)
+            seen.add(resolved)
+
+    for run_ref in sorted(_extract_run_references(content)):
+        resolved = None
+        for candidate in _run_ref_candidate_paths(run_ref, current_path):
+            if candidate in path_set:
+                resolved = candidate
+                break
+
+        if not resolved:
+            run_tail = run_ref.strip("./").split("/")[-1]
+            if run_tail:
+                resolved = basenames.get(run_tail if run_tail.endswith(".py") else f"{run_tail}.py")
 
         if resolved and resolved != current_path and resolved not in seen:
             related.append(resolved)
@@ -194,6 +268,7 @@ def get_repository_python_files(owner: str, repo: str, base_sha: str, head_sha: 
             content=file_contents[filename],
             all_paths=sorted(file_contents.keys()),
         )
+
         related_files = [
             {"path": path, "content": file_contents.get(path, "")[:20000]}
             for path in related_paths[:8]

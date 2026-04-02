@@ -48,6 +48,8 @@ def generate_script_summary(file_change: dict, context: dict) -> str:
         "- <h3>Risks / Follow-ups</h3>\n"
         "Be concrete and technical. Mention exact function names and return behavior.\n"
         "For dependency analysis, inspect the main script and all related files provided below.\n"
+        "In Cross-File Dependencies, include ONLY script/file dependencies (python/notebook files) that are called/imported/executed.\n"
+        "Do NOT include SQL tables, SQL views, temp views, schemas, databases, or target tables in Cross-File Dependencies.\n"
         "Do not duplicate rows in Cross-File Dependencies; keep one row per unique dependency and relation.\n"
         "For Risks / Follow-ups, include only issues directly supported by the provided code and patch context.\n"
         "Do not speculate, do not invent missing dependencies, and do not add generic risks.\n"
