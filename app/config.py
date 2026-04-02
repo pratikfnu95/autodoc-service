@@ -10,6 +10,17 @@ class Config:
     GITHUB_WEBHOOK_SECRET = os.getenv("GITHUB_WEBHOOK_SECRET", "")
     ALLOW_UNSIGNED_WEBHOOKS = os.getenv("ALLOW_UNSIGNED_WEBHOOKS", "false").lower() == "true"
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+    DEBUG_FULL_GITHUB_PAYLOAD = os.getenv("DEBUG_FULL_GITHUB_PAYLOAD", "true").lower() == "true"
+    DEBUG_LLM_PROMPT = os.getenv("DEBUG_LLM_PROMPT", "true").lower() == "true"
+    DEBUG_LLM_PROMPT_MAX_CHARS = int(os.getenv("DEBUG_LLM_PROMPT_MAX_CHARS", "0"))
+    DEBUG_LLM_RESPONSE = os.getenv("DEBUG_LLM_RESPONSE", "true").lower() == "true"
+    DEBUG_LLM_RESPONSE_MAX_CHARS = int(os.getenv("DEBUG_LLM_RESPONSE_MAX_CHARS", "0"))
+    LOG_TO_FILE = os.getenv("LOG_TO_FILE", "true").lower() == "true"
+    LOG_TO_CONSOLE = os.getenv("LOG_TO_CONSOLE", "false").lower() == "true"
+    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+    LOG_FILE_PATH = os.getenv("LOG_FILE_PATH", "./autodoc.log")
+    LOG_MAX_BYTES = int(os.getenv("LOG_MAX_BYTES", str(5 * 1024 * 1024)))
+    LOG_BACKUP_COUNT = int(os.getenv("LOG_BACKUP_COUNT", "5"))
     JIRA_BASE_URL = os.getenv("JIRA_BASE_URL", "https://pratikfnu.atlassian.net")
     JIRA_AUDIT_LIMIT = int(os.getenv("JIRA_AUDIT_LIMIT", "5"))
 

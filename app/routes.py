@@ -1,6 +1,7 @@
 import hashlib
 import hmac
 import json
+import logging
 import threading
 import time
 from flask import Blueprint, request, jsonify
@@ -13,10 +14,12 @@ from app.services.confluence_service import get_script_page, upsert_script_page
 
 
 webhook_bp = Blueprint("webhook", __name__)
+logger = logging.getLogger(__name__)
 
 
 def _log(message: str) -> None:
     print(message, flush=True)
+    logger.info(message)
 
 
 def _ms_to_s(ms: float) -> str:
@@ -29,6 +32,7 @@ def process_push_event(context: dict) -> None:
     summary_counts = {"updated": 0, "skipped": 0, "failed": 0, "pending_review": 0, "deleted": 0}
     review_links = []
     try:
+        logger.info("process_push_event_started context=%s", context)
         _log("")
         _log("=== Autodoc Run Start ===")
         _log(f"Repo: {repo_name}")
@@ -58,6 +62,15 @@ def process_push_event(context: dict) -> None:
             script_name = file_change.get("script_name", "")
             status = file_change.get("status", "unchanged")
             _log(f"Processing [{idx}/{total_scripts}] {script_name} (status={status})")
+            logger.info(
+                "script_input script=%s path=%s status=%s content_len=%s patch_len=%s related_files=%s",
+                script_name,
+                file_change.get("path", ""),
+                status,
+                len(file_change.get("content", "")),
+                len(file_change.get("patch", "")),
+                [i.get("path", "") for i in file_change.get("related_files", [])],
+            )
             existing_page = get_script_page(script_name)
 
             if status == "unchanged" and existing_page:
@@ -155,6 +168,7 @@ def process_push_event(context: dict) -> None:
                 )
     except Exception as exc:
         summary_counts["failed"] += 1
+        logger.exception("process_push_event_exception: %s", exc)
         _log(f"RUN ERROR | {exc}")
     finally:
         total_ms = (time.perf_counter() - webhook_start) * 1000
@@ -177,13 +191,23 @@ def process_push_event(context: dict) -> None:
 
 
 def is_valid_signature(raw_body: bytes, signature_header: str) -> bool:
+    logger.info(
+        "signature_validation_start allow_unsigned=%s has_secret=%s signature_present=%s body_len=%s",
+        Config.ALLOW_UNSIGNED_WEBHOOKS,
+        bool(Config.GITHUB_WEBHOOK_SECRET),
+        bool(signature_header),
+        len(raw_body),
+    )
     if Config.ALLOW_UNSIGNED_WEBHOOKS:
+        logger.info("signature_validation_bypass allow_unsigned=true")
         return True
 
     if not Config.GITHUB_WEBHOOK_SECRET:
+        logger.info("signature_validation_bypass no_secret")
         return True
 
     if not signature_header or not signature_header.startswith("sha256="):
+        logger.warning("signature_validation_failed malformed_header")
         return False
 
     provided = signature_header.split("=", 1)[1]
@@ -192,7 +216,9 @@ def is_valid_signature(raw_body: bytes, signature_header: str) -> bool:
         raw_body,
         hashlib.sha256,
     ).hexdigest()
-    return hmac.compare_digest(provided, expected)
+    valid = hmac.compare_digest(provided, expected)
+    logger.info("signature_validation_result valid=%s", valid)
+    return valid
 
 
 def parse_github_payload(raw_body: bytes) -> dict | None:
@@ -200,6 +226,7 @@ def parse_github_payload(raw_body: bytes) -> dict | None:
     # (with the JSON under "payload").
     payload = request.get_json(silent=True)
     if isinstance(payload, dict):
+        logger.info("payload_parse=json_body keys=%s", sorted(payload.keys()))
         return payload
 
     form_payload = request.form.get("payload")
@@ -207,15 +234,19 @@ def parse_github_payload(raw_body: bytes) -> dict | None:
         try:
             parsed = json.loads(form_payload)
             if isinstance(parsed, dict):
+                logger.info("payload_parse=form_payload keys=%s", sorted(parsed.keys()))
                 return parsed
         except json.JSONDecodeError:
+            logger.warning("payload_parse_error=form_payload_json_decode")
             return None
 
     try:
         parsed = json.loads(raw_body.decode("utf-8"))
         if isinstance(parsed, dict):
+            logger.info("payload_parse=raw_body_json keys=%s", sorted(parsed.keys()))
             return parsed
     except (UnicodeDecodeError, json.JSONDecodeError):
+        logger.warning("payload_parse_error=raw_body_decode_or_json")
         return None
 
     return None
@@ -232,6 +263,12 @@ def github_webhook():
     delivery_id = request.headers.get("X-GitHub-Delivery", "")
     signature = request.headers.get("X-Hub-Signature-256", "")
     raw_body = request.get_data()
+    logger.info(
+        "webhook_received event=%s delivery_id=%s body_len=%s",
+        event_type,
+        delivery_id,
+        len(raw_body),
+    )
 
     if not is_valid_signature(raw_body, signature):
         return jsonify({"error": "invalid signature"}), 401
@@ -242,9 +279,12 @@ def github_webhook():
     payload = parse_github_payload(raw_body)
     if payload is None:
         return jsonify({"error": "invalid payload"}), 400
+    if Config.DEBUG_FULL_GITHUB_PAYLOAD:
+        logger.info("github_payload_full=%s", json.dumps(payload, ensure_ascii=True))
 
     context = extract_push_context(payload)
     context["delivery_id"] = delivery_id
+    logger.info("context_extracted=%s", context)
 
     if not context["is_main_branch"]:
         return jsonify({"message": "ignored: not main branch"}), 200

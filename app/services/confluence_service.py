@@ -1,11 +1,14 @@
 import base64
 import datetime as dt
 import html
+import logging
 import os
 import re
 import requests
 
 from app.config import Config
+
+logger = logging.getLogger(__name__)
 
 AI_SUMMARY_HEADER = "<h2><strong>Technical Summary</strong></h2>"
 SECTION_ORDER = [
@@ -74,15 +77,19 @@ def _find_existing_page(title: str, headers: dict) -> dict | None:
     try:
         response = requests.get(url, headers=headers, params=params, timeout=30)
     except requests.RequestException:
+        logger.warning("confluence_find_exception title=%s", title)
         return None
 
     if response.status_code != 200:
+        logger.warning("confluence_find_failed title=%s status=%s", title, response.status_code)
         return None
 
     data = response.json()
     results = data.get("results", [])
     if not results:
+        logger.info("confluence_find_not_found title=%s", title)
         return None
+    logger.info("confluence_find_found title=%s page_id=%s", title, results[0].get("id"))
     return results[0]
 
 
@@ -708,12 +715,14 @@ def _create_page(title: str, body: str, headers: dict) -> dict:
 
     response = requests.post(url, headers=headers, json=payload, timeout=30)
     if response.status_code not in (200, 201):
+        logger.error("confluence_create_failed title=%s status=%s", title, response.status_code)
         return {
             "status": "failed",
             "status_code": response.status_code,
             "body": response.text,
         }
     data = response.json()
+    logger.info("confluence_create_ok title=%s page_id=%s", title, data.get("id"))
     return {"status": "published", "page_id": data.get("id"), "title": data.get("title")}
 
 
@@ -727,9 +736,11 @@ def _update_page(existing: dict, title: str, summary_html: str, context: dict, f
     try:
         get_response = requests.get(get_url, headers=headers, params=params, timeout=30)
     except requests.RequestException as exc:
+        logger.warning("confluence_update_fetch_exception title=%s err=%s", title, exc)
         return {"status": "failed", "reason": f"page fetch error: {exc}"}
 
     if get_response.status_code != 200:
+        logger.error("confluence_update_fetch_failed title=%s status=%s", title, get_response.status_code)
         return {"status": "failed", "status_code": get_response.status_code, "body": get_response.text}
 
     page_data = get_response.json()
@@ -762,11 +773,14 @@ def _update_page(existing: dict, title: str, summary_html: str, context: dict, f
     try:
         update_response = requests.put(update_url, headers=headers, json=update_payload, timeout=30)
     except requests.RequestException as exc:
+        logger.warning("confluence_update_exception title=%s err=%s", title, exc)
         return {"status": "failed", "reason": f"update error: {exc}"}
 
     if update_response.status_code != 200:
+        logger.error("confluence_update_failed title=%s status=%s", title, update_response.status_code)
         return {"status": "failed", "status_code": update_response.status_code, "body": update_response.text}
 
+    logger.info("confluence_update_ok title=%s page_id=%s", title, page_id)
     return {"status": "updated", "page_id": page_id, "title": title}
 
 
@@ -780,11 +794,14 @@ def _delete_page(existing: dict, headers: dict) -> dict:
     try:
         delete_response = requests.delete(delete_url, headers=headers, params=params, timeout=30)
     except requests.RequestException as exc:
+        logger.warning("confluence_delete_exception page_id=%s err=%s", page_id, exc)
         return {"status": "failed", "reason": f"delete error: {exc}"}
 
     if delete_response.status_code not in (200, 204):
+        logger.error("confluence_delete_failed page_id=%s status=%s", page_id, delete_response.status_code)
         return {"status": "failed", "status_code": delete_response.status_code, "body": delete_response.text}
 
+    logger.info("confluence_delete_ok page_id=%s", page_id)
     return {"status": "deleted", "page_id": page_id, "title": existing.get("title")}
 
 
@@ -799,6 +816,13 @@ def upsert_script_page(summary: str, context: dict, file_change: dict) -> dict:
         return {"status": "skipped", "reason": "Confluence config missing"}
 
     title = _humanize_script_title(file_change)
+    logger.info(
+        "confluence_upsert_start title=%s path=%s status=%s summary_len=%s",
+        title,
+        file_change.get("path", ""),
+        file_change.get("status", ""),
+        len(summary or ""),
+    )
     headers = _auth_headers()
     existing = _find_existing_page(title=title, headers=headers)
 

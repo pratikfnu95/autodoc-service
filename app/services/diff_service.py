@@ -1,9 +1,12 @@
 import base64
+import logging
 import re
 from urllib.parse import quote
 import requests
 
 from app.config import Config
+
+logger = logging.getLogger(__name__)
 
 
 def _github_headers() -> dict:
@@ -45,6 +48,7 @@ def _get_compare_files(owner: str, repo: str, base_sha: str, head_sha: str) -> d
         return {}
 
     if response.status_code != 200:
+        logger.warning("github_compare_failed base=%s head=%s status=%s", base_sha, head_sha, response.status_code)
         return {}
 
     data = response.json()
@@ -58,6 +62,7 @@ def _get_compare_files(owner: str, repo: str, base_sha: str, head_sha: str) -> d
             "status": file_info.get("status", "modified"),
             "patch": file_info.get("patch", ""),
         }
+    logger.info("github_compare_parsed base=%s head=%s python_changed=%s", base_sha, head_sha, len(file_map))
     return file_map
 
 
@@ -70,6 +75,7 @@ def _list_python_files_at_ref(owner: str, repo: str, ref: str) -> list[str]:
         return []
 
     if response.status_code != 200:
+        logger.warning("github_tree_failed ref=%s status=%s", ref, response.status_code)
         return []
 
     data = response.json()
@@ -81,6 +87,7 @@ def _list_python_files_at_ref(owner: str, repo: str, ref: str) -> list[str]:
         path = entry.get("path", "")
         if path.endswith(".py"):
             paths.append(path)
+    logger.info("github_tree_parsed ref=%s python_total=%s", ref, len(paths))
     return paths
 
 
@@ -237,12 +244,22 @@ def _resolve_related_python_files(current_path: str, content: str, all_paths: li
             related.append(resolved)
             seen.add(resolved)
 
+    logger.info("related_files_detected path=%s related=%s", current_path, related)
     return related
 
 
 def get_repository_python_files(owner: str, repo: str, base_sha: str, head_sha: str) -> list[dict]:
     compare_map = _get_compare_files(owner=owner, repo=repo, base_sha=base_sha, head_sha=head_sha)
     current_files = _list_python_files_at_ref(owner=owner, repo=repo, ref=head_sha)
+    logger.info(
+        "repo_files_start repo=%s/%s base=%s head=%s compare_map=%s current_files=%s",
+        owner,
+        repo,
+        base_sha,
+        head_sha,
+        len(compare_map),
+        len(current_files),
+    )
     results = []
     file_contents = {}
 
@@ -285,6 +302,14 @@ def get_repository_python_files(owner: str, repo: str, base_sha: str, head_sha: 
                 "related_files": related_files,
             }
         )
+        logger.info(
+            "file_change path=%s status=%s content_len=%s patch_len=%s related_count=%s",
+            filename,
+            change_info.get("status", "unchanged"),
+            len(file_contents[filename]),
+            len(change_info.get("patch", "")),
+            len(related_files),
+        )
 
     for filename, change_info in compare_map.items():
         if change_info.get("status") != "removed":
@@ -300,5 +325,7 @@ def get_repository_python_files(owner: str, repo: str, base_sha: str, head_sha: 
                 "related_files": [],
             }
         )
+        logger.info("file_change path=%s status=removed", filename)
 
+    logger.info("repo_files_done total=%s", len(results))
     return results

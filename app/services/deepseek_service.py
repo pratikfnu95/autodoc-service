@@ -1,6 +1,9 @@
+import logging
 import time
 import requests
 from app.config import Config
+
+logger = logging.getLogger(__name__)
 
 
 def _related_files_context(file_change: dict) -> str:
@@ -17,6 +20,28 @@ def _related_files_context(file_change: dict) -> str:
         blocks.append(f"Related File: {path}\n{content[: Config.DEEPSEEK_RELATED_FILE_MAX_CHARS]}")
 
     return "\n\n".join(blocks) if blocks else "None"
+
+
+def _debug_prompt_output(prompt: str, file_change: dict) -> None:
+    if not Config.DEBUG_LLM_PROMPT:
+        return
+    max_chars = Config.DEBUG_LLM_PROMPT_MAX_CHARS
+    body = prompt if max_chars <= 0 else prompt[:max_chars]
+    if max_chars > 0 and len(prompt) > max_chars:
+        body += f"\n\n[TRUNCATED {len(prompt) - max_chars} chars]"
+    logger.info("LLM_INPUT_START script=%s prompt_len=%s", file_change.get("script_name", ""), len(prompt))
+    logger.info("LLM_INPUT_BODY script=%s body=%s", file_change.get("script_name", ""), body)
+    logger.info("LLM_INPUT_END script=%s", file_change.get("script_name", ""))
+
+
+def _debug_response_output(response_text: str, file_change: dict) -> None:
+    if not Config.DEBUG_LLM_RESPONSE:
+        return
+    max_chars = Config.DEBUG_LLM_RESPONSE_MAX_CHARS
+    body = response_text if max_chars <= 0 else response_text[:max_chars]
+    if max_chars > 0 and len(response_text) > max_chars:
+        body += f"\n\n[TRUNCATED {len(response_text) - max_chars} chars]"
+    logger.info("LLM_RESPONSE script=%s body=%s", file_change.get("script_name", ""), body)
 
 
 def generate_script_summary(file_change: dict, context: dict) -> str:
@@ -65,6 +90,14 @@ def generate_script_summary(file_change: dict, context: dict) -> str:
         f"Related File Contents (for cross-file tracing):\n{related_context}\n\n"
         f"Patch (if available):\n{file_change.get('patch', '')[: Config.DEEPSEEK_PATCH_MAX_CHARS]}"
     )
+    _debug_prompt_output(prompt=prompt, file_change=file_change)
+    logger.info(
+        "deepseek_request_prepare script=%s path=%s model=%s prompt_len=%s",
+        file_change.get("script_name", ""),
+        file_change.get("path", ""),
+        Config.DEEPSEEK_MODEL,
+        len(prompt),
+    )
 
     url = f"{Config.DEEPSEEK_API_BASE}/chat/completions"
     headers = {
@@ -87,29 +120,49 @@ def generate_script_summary(file_change: dict, context: dict) -> str:
 
     for attempt in range(1, max_attempts + 1):
         try:
+            logger.info("deepseek_request_attempt script=%s attempt=%s/%s", file_change.get("script_name", ""), attempt, max_attempts)
             response = requests.post(url, json=payload, headers=headers, timeout=timeout)
         except requests.exceptions.ReadTimeout as exc:
             last_error = f"DeepSeek network error: read timeout after {Config.DEEPSEEK_READ_TIMEOUT_SEC}s ({exc})"
+            logger.warning("deepseek_read_timeout script=%s attempt=%s err=%s", file_change.get("script_name", ""), attempt, exc)
             if attempt < max_attempts:
                 sleep_sec = Config.DEEPSEEK_BACKOFF_BASE_SEC * attempt
                 time.sleep(sleep_sec)
                 continue
             return last_error
         except requests.RequestException as exc:
+            logger.exception("deepseek_network_exception script=%s err=%s", file_change.get("script_name", ""), exc)
             return f"DeepSeek network error: {exc}"
 
         if response.status_code == 200:
             try:
                 data = response.json()
             except ValueError:
+                logger.warning("deepseek_invalid_json script=%s", file_change.get("script_name", ""))
                 return "DeepSeek request failed: invalid JSON response"
-            return data.get("choices", [{}])[0].get("message", {}).get("content", "No summary returned.")
+            content = data.get("choices", [{}])[0].get("message", {}).get("content", "No summary returned.")
+            logger.info("deepseek_response_ok script=%s", file_change.get("script_name", ""))
+            _debug_response_output(response_text=content, file_change=file_change)
+            return content
 
         if response.status_code in retryable_statuses and attempt < max_attempts:
+            logger.warning(
+                "deepseek_retryable_status script=%s status=%s attempt=%s/%s",
+                file_change.get("script_name", ""),
+                response.status_code,
+                attempt,
+                max_attempts,
+            )
             sleep_sec = Config.DEEPSEEK_BACKOFF_BASE_SEC * attempt
             time.sleep(sleep_sec)
             continue
 
+        logger.error(
+            "deepseek_request_failed script=%s status=%s body=%s",
+            file_change.get("script_name", ""),
+            response.status_code,
+            response.text[:1000],
+        )
         return f"DeepSeek request failed: {response.status_code} {response.text}"
 
     return last_error or "DeepSeek request failed: exhausted retries"

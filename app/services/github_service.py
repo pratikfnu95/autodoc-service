@@ -1,6 +1,9 @@
+import logging
 import re
 
 from app.config import Config
+
+logger = logging.getLogger(__name__)
 
 
 def _extract_merged_branch_name(head_commit_message: str) -> str:
@@ -49,7 +52,7 @@ def extract_push_context(payload: dict) -> dict:
     jira_ticket_id = _extract_jira_ticket_from_branch(source_branch)
     jira_ticket_url = f"{Config.JIRA_BASE_URL.rstrip('/')}/browse/{jira_ticket_id}" if jira_ticket_id else ""
 
-    return {
+    context = {
         "is_main_branch": ref == "refs/heads/main",
         "ref": ref,
         "before": payload.get("before", ""),
@@ -64,3 +67,13 @@ def extract_push_context(payload: dict) -> dict:
         "jira_ticket_id": jira_ticket_id,
         "jira_ticket_url": jira_ticket_url,
     }
+    logger.info(
+        "github_context repo=%s ref=%s before=%s after=%s source_branch=%s jira=%s",
+        context.get("repo_full_name"),
+        context.get("ref"),
+        context.get("before"),
+        context.get("after"),
+        context.get("source_branch"),
+        context.get("jira_ticket_id"),
+    )
+    return context
