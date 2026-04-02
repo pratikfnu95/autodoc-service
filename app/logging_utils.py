@@ -23,6 +23,9 @@ def init_logging() -> None:
         log_dir = os.path.dirname(log_path)
         if log_dir:
             os.makedirs(log_dir, exist_ok=True)
+        if Config.LOG_RESET_EACH_RUN:
+            with open(log_path, "w", encoding="utf-8"):
+                pass
         file_handler = RotatingFileHandler(
             log_path,
             maxBytes=Config.LOG_MAX_BYTES,

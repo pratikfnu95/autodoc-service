@@ -21,6 +21,7 @@ class Config:
     LOG_FILE_PATH = os.getenv("LOG_FILE_PATH", "./autodoc.log")
     LOG_MAX_BYTES = int(os.getenv("LOG_MAX_BYTES", str(5 * 1024 * 1024)))
     LOG_BACKUP_COUNT = int(os.getenv("LOG_BACKUP_COUNT", "5"))
+    LOG_RESET_EACH_RUN = os.getenv("LOG_RESET_EACH_RUN", "true").lower() == "true"
     JIRA_BASE_URL = os.getenv("JIRA_BASE_URL", "https://pratikfnu.atlassian.net")
     JIRA_AUDIT_LIMIT = int(os.getenv("JIRA_AUDIT_LIMIT", "5"))
 

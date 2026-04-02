@@ -1175,3 +1175,232 @@ Patch (if available):
 2026-04-02 03:01:12 | INFO | app.routes | 
 2026-04-02 03:01:12 | INFO | app.routes | RUN SUMMARY | pending_review=0 | updated=2 | deleted=0 | skipped=2 | failed=0 | total_time=146.39s
 2026-04-02 03:01:12 | INFO | app.routes | === Autodoc Run Complete ===
+2026-04-02 03:20:37 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.0.53:5000
+2026-04-02 03:20:37 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-02 03:20:37 | INFO | werkzeug |  * Restarting with stat
+2026-04-02 03:20:37 | WARNING | werkzeug |  * Debugger is active!
+2026-04-02 03:20:37 | INFO | werkzeug |  * Debugger PIN: 104-369-235
+2026-04-02 03:21:10 | INFO | app.routes | webhook_received event=push delivery_id=90ace0c6-2e2c-11f1-9d2c-1256d3cac761 body_len=8875
+2026-04-02 03:21:10 | INFO | app.routes | signature_validation_start allow_unsigned=False has_secret=True signature_present=True body_len=8875
+2026-04-02 03:21:10 | INFO | app.routes | signature_validation_result valid=True
+2026-04-02 03:21:10 | INFO | app.routes | payload_parse=json_body keys=['after', 'base_ref', 'before', 'commits', 'compare', 'created', 'deleted', 'forced', 'head_commit', 'pusher', 'ref', 'repository', 'sender']
+2026-04-02 03:21:10 | INFO | app.routes | github_payload_full={"ref": "refs/heads/main", "before": "d010a09b836349d12d5bc5fbc313f6a1f5032327", "after": "e87391da5b0caeab68cfe91d161e826f164b7065", "repository": {"id": 1151765131, "node_id": "R_kgDORKaKiw", "name": "autodoc-notebook-poc", "full_name": "pratikfnu95/autodoc-notebook-poc", "private": false, "owner": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "html_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "description": null, "fork": false, "url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc", "forks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/forks", "keys_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/keys{/key_id}", "collaborators_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/collaborators{/collaborator}", "teams_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/teams", "hooks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/hooks", "issue_events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/events{/number}", "events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/events", "assignees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/assignees{/user}", "branches_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/branches{/branch}", "tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/tags", "blobs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/blobs{/sha}", "git_tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/tags{/sha}", "git_refs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/refs{/sha}", "trees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/trees{/sha}", "statuses_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/statuses/{sha}", "languages_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/languages", "stargazers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/stargazers", "contributors_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contributors", "subscribers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscribers", "subscription_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscription", "commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/commits{/sha}", "git_commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/commits{/sha}", "comments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/comments{/number}", "issue_comment_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/comments{/number}", "contents_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contents/{+path}", "compare_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/compare/{base}...{head}", "merges_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/merges", "archive_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/{archive_format}{/ref}", "downloads_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/downloads", "issues_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues{/number}", "pulls_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/pulls{/number}", "milestones_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/milestones{/number}", "notifications_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/notifications{?since,all,participating}", "labels_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/labels{/name}", "releases_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/releases{/id}", "deployments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/deployments", "created_at": 1770414456, "updated_at": "2026-04-02T00:01:43Z", "pushed_at": 1775090435, "git_url": "git://github.com/pratikfnu95/autodoc-notebook-poc.git", "ssh_url": "git@github.com:pratikfnu95/autodoc-notebook-poc.git", "clone_url": "https://github.com/pratikfnu95/autodoc-notebook-poc.git", "svn_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "homepage": null, "size": 31, "stargazers_count": 0, "watchers_count": 0, "language": "Python", "has_issues": true, "has_projects": true, "has_downloads": true, "has_wiki": true, "has_pages": false, "has_discussions": false, "forks_count": 0, "mirror_url": null, "archived": false, "disabled": false, "open_issues_count": 0, "license": null, "allow_forking": true, "is_template": false, "web_commit_signoff_required": false, "has_pull_requests": true, "pull_request_creation_policy": "all", "topics": [], "visibility": "public", "forks": 0, "open_issues": 0, "watchers": 0, "default_branch": "main", "stargazers": 0, "master_branch": "main"}, "pusher": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com"}, "forced": false, "sender": {"login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "created": false, "deleted": false, "base_ref": null, "compare": "https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c", "commits": [{"id": "99759643d29beb961218d440c1c8cf04787bd498", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": false, "message": "check444", "timestamp": "2026-04-02T00:40:19Z", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/99759643d29beb961218d440c1c8cf04787bd498", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "committer": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}, {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}], "head_commit": {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}}
+2026-04-02 03:21:10 | INFO | app.services.github_service | github_context repo=pratikfnu95/autodoc-notebook-poc ref=refs/heads/main before=d010a09b836349d12d5bc5fbc313f6a1f5032327 after=e87391da5b0caeab68cfe91d161e826f164b7065 source_branch=KAN-7 jira=KAN-7
+2026-04-02 03:21:10 | INFO | app.routes | context_extracted={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
+2026-04-02 03:21:10 | INFO | app.routes | process_push_event_started context={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
+2026-04-02 03:21:10 | INFO | werkzeug | 127.0.0.1 - - [02/Apr/2026 03:21:10] "[35m[1mPOST /webhook/github HTTP/1.1[0m" 202 -
+2026-04-02 03:21:10 | INFO | app.routes | 
+2026-04-02 03:21:10 | INFO | app.routes | === Autodoc Run Start ===
+2026-04-02 03:21:10 | INFO | app.routes | Repo: pratikfnu95/autodoc-notebook-poc
+2026-04-02 03:21:10 | INFO | app.routes | Branch: refs/heads/main
+2026-04-02 03:21:10 | INFO | app.routes | Source branch: KAN-7
+2026-04-02 03:21:10 | INFO | app.routes | Jira ticket: KAN-7
+2026-04-02 03:21:10 | INFO | app.routes | Scanning python files and commit diff...
+2026-04-02 03:21:11 | INFO | app.services.diff_service | github_compare_parsed base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 python_changed=1
+2026-04-02 03:21:11 | INFO | app.services.diff_service | github_tree_parsed ref=e87391da5b0caeab68cfe91d161e826f164b7065 python_total=4
+2026-04-02 03:21:11 | INFO | app.services.diff_service | repo_files_start repo=pratikfnu95/autodoc-notebook-poc base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 compare_map=1 current_files=4
+2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=policytransaction.py related=['staging_transformations_logic.py']
+2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=policytransaction.py status=modified content_len=3139 patch_len=490 related_count=1
+2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=simple_calculator.py related=[]
+2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=simple_calculator.py status=unchanged content_len=837 patch_len=0 related_count=0
+2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=staging_transformations_logic.py related=[]
+2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_count=0
+2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=todo_manager.py related=[]
+2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_count=0
+2026-04-02 03:21:12 | INFO | app.services.diff_service | repo_files_done total=4
+2026-04-02 03:21:12 | INFO | app.routes | Discovered scripts: 4
+2026-04-02 03:21:12 | INFO | app.routes | Starting documentation pipeline...
+2026-04-02 03:21:12 | INFO | app.routes | Processing [1/4] policytransaction (status=modified)
+2026-04-02 03:21:12 | INFO | app.routes | script_input script=policytransaction path=policytransaction.py status=modified content_len=3139 patch_len=490 related_files=['staging_transformations_logic.py']
+2026-04-02 03:21:12 | INFO | app.services.confluence_service | confluence_find_not_found title=policytransaction
+2026-04-02 03:21:12 | INFO | app.routes | Running | script=policytransaction | stage=summarizing
+2026-04-02 03:21:12 | INFO | app.services.deepseek_service | LLM_INPUT_START script=policytransaction prompt_len=6931
+2026-04-02 03:21:12 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=policytransaction body=You are generating enterprise engineering documentation for Confluence.
+Return ONLY valid HTML snippet (no markdown fences) using these tags only: h3, h4, p, ul, li, table, thead, tbody, tr, th, td, code, strong.
+Do NOT include full source code dumps, <pre> blocks, or complete function bodies.
+Use inline style attributes on table/th/td to apply a clean blue theme suitable for Confluence: light blue table background, darker blue header row, white header text, subtle borders, readable padding, and alternating row shading.
+Keep styling professional and lightweight (no scripts, no external CSS).
+Use this structure exactly:
+- <h3>Purpose</h3>
+- <h3>High-Level Flow</h3>
+- <h3>Cross-File Dependencies</h3> as an HTML table with columns: Referenced Script, Relation Type, Key Usage, Impact
+- <h3>Input/Output Behavior</h3>
+- <h3>Source to Target Mapping</h3> as an HTML table with columns: Source Object, Source Field/Expression, Transformation/Rule, Target Object, Target Field
+- <h3>Recent Change Summary</h3>
+- <h3>Jira Story Traceability</h3>
+- <h3>Risks / Follow-ups</h3>
+Be concrete and technical. Mention exact function names and return behavior.
+For dependency analysis, inspect the main script and all related files provided below.
+In Cross-File Dependencies, include ONLY script/file dependencies (python/notebook files) that are called/imported/executed.
+Do NOT include SQL tables, SQL views, temp views, schemas, databases, or target tables in Cross-File Dependencies.
+Do not duplicate rows in Cross-File Dependencies; keep one row per unique dependency and relation.
+For Risks / Follow-ups, include only issues directly supported by the provided code and patch context.
+Do not speculate, do not invent missing dependencies, and do not add generic risks.
+If no concrete risk is visible in the provided code, output exactly: <p>No concrete risks identified from the provided code.</p>
+For Source to Target Mapping, include SQL SELECT fields, dataframe/variable assignments, and final writes/outputs.
+If no mapping exists, include one row with N/A values and note why.
+
+Repository: pratikfnu95/autodoc-notebook-poc
+Branch: refs/heads/main
+Commit Range: d010a09b836349d12d5bc5fbc313f6a1f5032327 -> e87391da5b0caeab68cfe91d161e826f164b7065
+
+File Path: policytransaction.py
+Change Type: existing script updated
+
+Main File Content:
+# Databricks notebook source
+# databricks notebook - stage policy transaction data 
+
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+import re
+
+# COMMAND ----------
+
+# DBTITLE 1,dependent file
+# MAGIC %run ./staging_transformations_logic
+
+# COMMAND ----------
+
+stg_df = spark.sql("""
+    SELECT
+    pol.PolicyNumber_newValue AS policy_number,
+    pol.PolicyRef_newValue AS policy_ref,
+    acc.AccountNumber_newValue AS account_number,
+    acc.Producercode_newValue AS producer_code,
+    CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
+    CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
+    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
+    CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
+    pol.State_newValue AS state,
+    CASE
+        WHEN pol.IsFullyEarned_newValue = 'Eligible' THEN Y
+        ELSE N
+    END AS is_fully_earned_ind,
+    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) -
+    CAST(pol.WrittenPremium_oldValue AS DECIMAL(18,3)) AS premium_change_amt,
+    current_timestamp() AS load_ts
+    FROM vw_policy_xml_raw pol
+    LEFT JOIN vw_account_xml_raw acc
+        ON pol.PolicyRef_newValue = acc.PolicyRef_newValue;
+""")
+
+# Step 3: Deduplicate latest record by policy and transaction date
+window_spec = (
+    Window
+    .partitionBy("policy_number", "transaction_effective_date")
+    .orderBy(F.col("load_ts").desc())
+)
+
+final_df = (
+    stg_df
+    .withColumn("rn", F.row_number().over(window_spec))
+    .filter(F.col("rn") == 1)
+    .drop("rn")
+)
+
+final_df.createOrReplaceTempView("vw_policy_transaction_stage")
+
+
+
+# COMMAND ----------
+
+# MAGIC  %sql
+# MAGIC  -- Step 4: Insert or merge into downstream transaction table
+# MAGIC  MERGE INTO mart.policy_transaction t
+# MAGIC  USING vw_policy_transaction_stage s
+# MAGIC  ON t.policy_number = s.policy_number
+# MAGIC  AND t.transaction_effective_date = s.transaction_effective_date
+# MAGIC  WHEN MATCHED THEN
+# MAGIC    UPDATE SET
+# MAGIC      t.policy_ref = s.policy_ref,
+# MAGIC      t.deck_number = s.deck_number,
+# MAGIC      t.account_number = s.account_number,
+# MAGIC      t.written_premium = s.written_premium,
+# MAGIC      t.annual_premium = s.annual_premium,
+# MAGIC      t.premium_change_amt = s.premium_change_amt,
+# MAGIC      t.state = s.state,
+# MAGIC      t.is_fully_earned_ind = s.is_fully_earned_ind,
+# MAGIC      t.load_ts = s.load_ts
+# MAGIC  WHEN NOT MATCHED THEN
+# MAGIC    INSERT (
+# MAGIC      policy_number,
+# MAGIC      policy_ref,
+# MAGIC      deck_number,
+# MAGIC      transaction_effective_date,
+# MAGIC      written_premium,
+# MAGIC      annual_premium,
+# MAGIC      premium_change_amt,
+# MAGIC      state,
+# MAGIC      is_fully_earned_ind,
+# MAGIC      load_ts
+# MAGIC    )
+# MAGIC    VALUES (
+# MAGIC      s.policy_number,
+# MAGIC      s.policy_ref,
+# MAGIC      s.deck_number,
+# MAGIC      s.transaction_effective_date,
+# MAGIC      s.written_premium,
+# MAGIC      s.annual_premium,
+# MAGIC      s.premium_change_amt,
+# MAGIC      s.state,
+# MAGIC      s.is_fully_earned_ind,
+# MAGIC      s.load_ts
+# MAGIC    )
+
+
+Related File Contents (for cross-file tracing):
+Related File: staging_transformations_logic.py
+# Databricks notebook source
+# Databricks notebook
+
+# Step 1: Read raw XML-flattened table
+src_df = spark.sql("""
+    SELECT
+        PolicyNumber_newValue,
+        PolicyRef_newValue,
+        DeckNumber_newValue,
+        TransactionEffectiveDate_newValue,
+        WrittenPremium_newValue,
+        AnnualPremium_newValue,
+        State_newValue,
+        IsFullyEarned_newValue
+    FROM policy_xml
+""")
+
+# Step 2: Create temp view from source dataframe
+src_df.createOrReplaceTempView("vw_policy_xml_raw")
+
+# COMMAND ----------
+
+# Databricks notebook
+
+# Step 1: Read raw XML-flattened table
+src_df2 = spark.sql("""
+    SELECT
+        AccountNumber_newValue,
+        PolicyRef_newValue,
+        Producercode_newValue
+    FROM policy_xml
+""")
+
+# Step 2: Create temp view from source dataframe
+src_df2.createOrReplaceTempView("vw_account_xml_raw")
+
+
+Patch (if available):
+@@ -20,7 +20,7 @@
+     acc.Producercode_newValue AS producer_code,
+     CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
+     CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
+-    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
++    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
+     CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
+     pol.State_newValue AS state,
+     CASE
+2026-04-02 03:21:12 | INFO | app.services.deepseek_service | LLM_INPUT_END script=policytransaction
+2026-04-02 03:21:12 | INFO | app.services.deepseek_service | deepseek_request_prepare script=policytransaction path=policytransaction.py model=deepseek-chat prompt_len=6931
+2026-04-02 03:21:12 | INFO | app.services.deepseek_service | deepseek_request_attempt script=policytransaction attempt=1/3
