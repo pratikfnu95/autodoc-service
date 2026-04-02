@@ -1,64 +1,45 @@
-2026-04-02 02:50:22 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:50:22 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:50:40 | INFO | werkzeug |  * Detected change in '/Users/pratik/Desktop/autodoc-service/app/routes.py', reloading
-2026-04-02 02:50:41 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:50:41 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:51:05 | INFO | werkzeug |  * Detected change in '/Users/pratik/Desktop/autodoc-service/app/services/deepseek_service.py', reloading
-2026-04-02 02:51:05 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:51:05 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:51:15 | INFO | werkzeug |  * Detected change in '/Users/pratik/Desktop/autodoc-service/app/services/github_service.py', reloading
-2026-04-02 02:51:15 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:51:16 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:51:34 | INFO | werkzeug |  * Detected change in '/Users/pratik/Desktop/autodoc-service/app/services/diff_service.py', reloading
-2026-04-02 02:51:34 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:51:35 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:51:56 | INFO | werkzeug |  * Detected change in '/Users/pratik/Desktop/autodoc-service/app/services/confluence_service.py', reloading
-2026-04-02 02:51:57 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:51:57 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:53:53 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.0.0.53:5000
-2026-04-02 02:53:53 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
-2026-04-02 02:53:53 | INFO | werkzeug |  * Restarting with stat
-2026-04-02 02:53:53 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:53:53 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:54:09 | INFO | app.routes | webhook_received event=push delivery_id=90ace0c6-2e2c-11f1-9d2c-1256d3cac761 body_len=8875
-2026-04-02 02:54:09 | INFO | app.routes | signature_validation_start allow_unsigned=False has_secret=True signature_present=True body_len=8875
-2026-04-02 02:54:09 | INFO | app.routes | signature_validation_result valid=True
-2026-04-02 02:54:09 | INFO | app.routes | payload_parse=json_body keys=['after', 'base_ref', 'before', 'commits', 'compare', 'created', 'deleted', 'forced', 'head_commit', 'pusher', 'ref', 'repository', 'sender']
-2026-04-02 02:54:09 | INFO | app.routes | github_payload_full={"ref": "refs/heads/main", "before": "d010a09b836349d12d5bc5fbc313f6a1f5032327", "after": "e87391da5b0caeab68cfe91d161e826f164b7065", "repository": {"id": 1151765131, "node_id": "R_kgDORKaKiw", "name": "autodoc-notebook-poc", "full_name": "pratikfnu95/autodoc-notebook-poc", "private": false, "owner": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "html_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "description": null, "fork": false, "url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc", "forks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/forks", "keys_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/keys{/key_id}", "collaborators_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/collaborators{/collaborator}", "teams_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/teams", "hooks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/hooks", "issue_events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/events{/number}", "events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/events", "assignees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/assignees{/user}", "branches_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/branches{/branch}", "tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/tags", "blobs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/blobs{/sha}", "git_tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/tags{/sha}", "git_refs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/refs{/sha}", "trees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/trees{/sha}", "statuses_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/statuses/{sha}", "languages_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/languages", "stargazers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/stargazers", "contributors_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contributors", "subscribers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscribers", "subscription_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscription", "commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/commits{/sha}", "git_commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/commits{/sha}", "comments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/comments{/number}", "issue_comment_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/comments{/number}", "contents_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contents/{+path}", "compare_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/compare/{base}...{head}", "merges_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/merges", "archive_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/{archive_format}{/ref}", "downloads_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/downloads", "issues_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues{/number}", "pulls_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/pulls{/number}", "milestones_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/milestones{/number}", "notifications_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/notifications{?since,all,participating}", "labels_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/labels{/name}", "releases_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/releases{/id}", "deployments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/deployments", "created_at": 1770414456, "updated_at": "2026-04-02T00:01:43Z", "pushed_at": 1775090435, "git_url": "git://github.com/pratikfnu95/autodoc-notebook-poc.git", "ssh_url": "git@github.com:pratikfnu95/autodoc-notebook-poc.git", "clone_url": "https://github.com/pratikfnu95/autodoc-notebook-poc.git", "svn_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "homepage": null, "size": 31, "stargazers_count": 0, "watchers_count": 0, "language": "Python", "has_issues": true, "has_projects": true, "has_downloads": true, "has_wiki": true, "has_pages": false, "has_discussions": false, "forks_count": 0, "mirror_url": null, "archived": false, "disabled": false, "open_issues_count": 0, "license": null, "allow_forking": true, "is_template": false, "web_commit_signoff_required": false, "has_pull_requests": true, "pull_request_creation_policy": "all", "topics": [], "visibility": "public", "forks": 0, "open_issues": 0, "watchers": 0, "default_branch": "main", "stargazers": 0, "master_branch": "main"}, "pusher": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com"}, "forced": false, "sender": {"login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "created": false, "deleted": false, "base_ref": null, "compare": "https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c", "commits": [{"id": "99759643d29beb961218d440c1c8cf04787bd498", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": false, "message": "check444", "timestamp": "2026-04-02T00:40:19Z", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/99759643d29beb961218d440c1c8cf04787bd498", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "committer": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}, {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}], "head_commit": {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}}
-2026-04-02 02:54:09 | INFO | app.services.github_service | github_context repo=pratikfnu95/autodoc-notebook-poc ref=refs/heads/main before=d010a09b836349d12d5bc5fbc313f6a1f5032327 after=e87391da5b0caeab68cfe91d161e826f164b7065 source_branch=KAN-7 jira=KAN-7
-2026-04-02 02:54:09 | INFO | app.routes | context_extracted={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
-2026-04-02 02:54:09 | INFO | app.routes | process_push_event_started context={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
-2026-04-02 02:54:09 | INFO | werkzeug | 127.0.0.1 - - [02/Apr/2026 02:54:09] "[35m[1mPOST /webhook/github HTTP/1.1[0m" 202 -
-2026-04-02 02:54:09 | INFO | app.routes | 
-2026-04-02 02:54:09 | INFO | app.routes | === Autodoc Run Start ===
-2026-04-02 02:54:09 | INFO | app.routes | Repo: pratikfnu95/autodoc-notebook-poc
-2026-04-02 02:54:09 | INFO | app.routes | Branch: refs/heads/main
-2026-04-02 02:54:09 | INFO | app.routes | Source branch: KAN-7
-2026-04-02 02:54:09 | INFO | app.routes | Jira ticket: KAN-7
-2026-04-02 02:54:09 | INFO | app.routes | Scanning python files and commit diff...
-2026-04-02 02:54:09 | INFO | app.services.diff_service | github_compare_parsed base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 python_changed=1
-2026-04-02 02:54:09 | INFO | app.services.diff_service | github_tree_parsed ref=e87391da5b0caeab68cfe91d161e826f164b7065 python_total=4
-2026-04-02 02:54:09 | INFO | app.services.diff_service | repo_files_start repo=pratikfnu95/autodoc-notebook-poc base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 compare_map=1 current_files=4
-2026-04-02 02:54:10 | INFO | app.services.diff_service | related_files_detected path=policytransaction.py related=['staging_transformations_logic.py']
-2026-04-02 02:54:10 | INFO | app.services.diff_service | file_change path=policytransaction.py status=modified content_len=3139 patch_len=490 related_count=1
-2026-04-02 02:54:10 | INFO | app.services.diff_service | related_files_detected path=simple_calculator.py related=[]
-2026-04-02 02:54:10 | INFO | app.services.diff_service | file_change path=simple_calculator.py status=unchanged content_len=837 patch_len=0 related_count=0
-2026-04-02 02:54:10 | INFO | app.services.diff_service | related_files_detected path=staging_transformations_logic.py related=[]
-2026-04-02 02:54:10 | INFO | app.services.diff_service | file_change path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_count=0
-2026-04-02 02:54:10 | INFO | app.services.diff_service | related_files_detected path=todo_manager.py related=[]
-2026-04-02 02:54:10 | INFO | app.services.diff_service | file_change path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_count=0
-2026-04-02 02:54:10 | INFO | app.services.diff_service | repo_files_done total=4
-2026-04-02 02:54:10 | INFO | app.routes | Discovered scripts: 4
-2026-04-02 02:54:10 | INFO | app.routes | Starting documentation pipeline...
-2026-04-02 02:54:10 | INFO | app.routes | Processing [1/4] policytransaction (status=modified)
-2026-04-02 02:54:10 | INFO | app.routes | script_input script=policytransaction path=policytransaction.py status=modified content_len=3139 patch_len=490 related_files=['staging_transformations_logic.py']
-2026-04-02 02:54:10 | INFO | app.services.confluence_service | confluence_find_not_found title=policytransaction
-2026-04-02 02:54:10 | INFO | app.routes | Running | script=policytransaction | stage=summarizing
-2026-04-02 02:54:10 | INFO | app.services.deepseek_service | LLM_INPUT_START script=policytransaction prompt_len=6931
-2026-04-02 02:54:10 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=policytransaction body=You are generating enterprise engineering documentation for Confluence.
+2026-04-02 11:24:42 | WARNING | werkzeug |  * Debugger is active!
+2026-04-02 11:24:42 | INFO | werkzeug |  * Debugger PIN: 104-369-235
+2026-04-02 11:25:27 | INFO | app.routes | webhook_received event=push delivery_id=64e2f140-2ea6-11f1-993b-f39212be8a49 body_len=8872
+2026-04-02 11:25:27 | INFO | app.routes | signature_validation_start allow_unsigned=False has_secret=True signature_present=True body_len=8872
+2026-04-02 11:25:27 | INFO | app.routes | signature_validation_result valid=True
+2026-04-02 11:25:27 | INFO | app.routes | payload_parse=json_body keys=['after', 'base_ref', 'before', 'commits', 'compare', 'created', 'deleted', 'forced', 'head_commit', 'pusher', 'ref', 'repository', 'sender']
+2026-04-02 11:25:27 | INFO | app.routes | github_payload_full={"ref": "refs/heads/main", "before": "4a2879c6eedf8cb005d4602ef61b86b9bfa30562", "after": "4c73ef974abaef634a026ea1376ee3f60b37581f", "repository": {"id": 1151765131, "node_id": "R_kgDORKaKiw", "name": "autodoc-notebook-poc", "full_name": "pratikfnu95/autodoc-notebook-poc", "private": false, "owner": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "html_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "description": null, "fork": false, "url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc", "forks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/forks", "keys_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/keys{/key_id}", "collaborators_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/collaborators{/collaborator}", "teams_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/teams", "hooks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/hooks", "issue_events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/events{/number}", "events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/events", "assignees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/assignees{/user}", "branches_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/branches{/branch}", "tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/tags", "blobs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/blobs{/sha}", "git_tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/tags{/sha}", "git_refs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/refs{/sha}", "trees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/trees{/sha}", "statuses_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/statuses/{sha}", "languages_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/languages", "stargazers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/stargazers", "contributors_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contributors", "subscribers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscribers", "subscription_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscription", "commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/commits{/sha}", "git_commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/commits{/sha}", "comments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/comments{/number}", "issue_comment_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/comments{/number}", "contents_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contents/{+path}", "compare_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/compare/{base}...{head}", "merges_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/merges", "archive_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/{archive_format}{/ref}", "downloads_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/downloads", "issues_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues{/number}", "pulls_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/pulls{/number}", "milestones_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/milestones{/number}", "notifications_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/notifications{?since,all,participating}", "labels_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/labels{/name}", "releases_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/releases{/id}", "deployments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/deployments", "created_at": 1770414456, "updated_at": "2026-04-02T07:50:47Z", "pushed_at": 1775142759, "git_url": "git://github.com/pratikfnu95/autodoc-notebook-poc.git", "ssh_url": "git@github.com:pratikfnu95/autodoc-notebook-poc.git", "clone_url": "https://github.com/pratikfnu95/autodoc-notebook-poc.git", "svn_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "homepage": null, "size": 36, "stargazers_count": 0, "watchers_count": 0, "language": "Python", "has_issues": true, "has_projects": true, "has_downloads": true, "has_wiki": true, "has_pages": false, "has_discussions": false, "forks_count": 0, "mirror_url": null, "archived": false, "disabled": false, "open_issues_count": 0, "license": null, "allow_forking": true, "is_template": false, "web_commit_signoff_required": false, "has_pull_requests": true, "pull_request_creation_policy": "all", "topics": [], "visibility": "public", "forks": 0, "open_issues": 0, "watchers": 0, "default_branch": "main", "stargazers": 0, "master_branch": "main"}, "pusher": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com"}, "forced": false, "sender": {"login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "created": false, "deleted": false, "base_ref": null, "compare": "https://github.com/pratikfnu95/autodoc-notebook-poc/compare/4a2879c6eedf...4c73ef974aba", "commits": [{"id": "41d2706733b6a6581aedb3ce7213e9f16bdf2baa", "tree_id": "17d309d4d863b7a0491057eca19af378a89e6bcf", "distinct": false, "message": "test123", "timestamp": "2026-04-02T14:58:15Z", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/41d2706733b6a6581aedb3ce7213e9f16bdf2baa", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T14:58:15Z", "username": "pratikfnu95"}, "committer": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T14:58:15Z", "username": "pratikfnu95"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}, {"id": "4c73ef974abaef634a026ea1376ee3f60b37581f", "tree_id": "17d309d4d863b7a0491057eca19af378a89e6bcf", "distinct": true, "message": "Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123", "timestamp": "2026-04-02T11:12:39-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/4c73ef974abaef634a026ea1376ee3f60b37581f", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T11:12:39-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-02T11:12:39-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}], "head_commit": {"id": "4c73ef974abaef634a026ea1376ee3f60b37581f", "tree_id": "17d309d4d863b7a0491057eca19af378a89e6bcf", "distinct": true, "message": "Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123", "timestamp": "2026-04-02T11:12:39-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/4c73ef974abaef634a026ea1376ee3f60b37581f", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T11:12:39-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-02T11:12:39-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}}
+2026-04-02 11:25:27 | INFO | app.services.github_service | github_context repo=pratikfnu95/autodoc-notebook-poc ref=refs/heads/main before=4a2879c6eedf8cb005d4602ef61b86b9bfa30562 after=4c73ef974abaef634a026ea1376ee3f60b37581f source_branch=KAN-8 jira=KAN-8
+2026-04-02 11:25:27 | INFO | app.routes | context_extracted={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': '4a2879c6eedf8cb005d4602ef61b86b9bfa30562', 'after': '4c73ef974abaef634a026ea1376ee3f60b37581f', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/4a2879c6eedf...4c73ef974aba', 'head_commit_message': 'Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123', 'source_branch': 'KAN-8', 'jira_ticket_id': 'KAN-8', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-8', 'delivery_id': '64e2f140-2ea6-11f1-993b-f39212be8a49'}
+2026-04-02 11:25:27 | INFO | app.routes | process_push_event_started context={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': '4a2879c6eedf8cb005d4602ef61b86b9bfa30562', 'after': '4c73ef974abaef634a026ea1376ee3f60b37581f', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/4a2879c6eedf...4c73ef974aba', 'head_commit_message': 'Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123', 'source_branch': 'KAN-8', 'jira_ticket_id': 'KAN-8', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-8', 'delivery_id': '64e2f140-2ea6-11f1-993b-f39212be8a49'}
+2026-04-02 11:25:27 | INFO | werkzeug | 127.0.0.1 - - [02/Apr/2026 11:25:27] "[35m[1mPOST /webhook/github HTTP/1.1[0m" 202 -
+2026-04-02 11:25:27 | INFO | app.routes | 
+2026-04-02 11:25:27 | INFO | app.routes | === Autodoc Run Start ===
+2026-04-02 11:25:27 | INFO | app.routes | Repo: pratikfnu95/autodoc-notebook-poc
+2026-04-02 11:25:27 | INFO | app.routes | Branch: refs/heads/main
+2026-04-02 11:25:27 | INFO | app.routes | Source branch: KAN-8
+2026-04-02 11:25:27 | INFO | app.routes | Jira ticket: KAN-8
+2026-04-02 11:25:27 | INFO | app.routes | Scanning python files and commit diff...
+2026-04-02 11:25:27 | INFO | app.services.diff_service | github_compare_parsed base=4a2879c6eedf8cb005d4602ef61b86b9bfa30562 head=4c73ef974abaef634a026ea1376ee3f60b37581f python_changed=1
+2026-04-02 11:25:28 | INFO | app.services.diff_service | github_tree_parsed ref=4c73ef974abaef634a026ea1376ee3f60b37581f python_total=4
+2026-04-02 11:25:28 | INFO | app.services.diff_service | repo_files_start repo=pratikfnu95/autodoc-notebook-poc base=4a2879c6eedf8cb005d4602ef61b86b9bfa30562 head=4c73ef974abaef634a026ea1376ee3f60b37581f compare_map=1 current_files=4
+2026-04-02 11:25:28 | INFO | app.services.diff_service | related_files_detected path=my_Calculator.py related=[]
+2026-04-02 11:25:28 | INFO | app.services.diff_service | file_change path=my_Calculator.py status=unchanged content_len=736 patch_len=0 related_count=0
+2026-04-02 11:25:28 | INFO | app.services.diff_service | related_files_detected path=policytransaction.py related=['staging_transformations_logic.py']
+2026-04-02 11:25:28 | INFO | app.services.diff_service | file_change path=policytransaction.py status=modified content_len=3139 patch_len=490 related_count=1
+2026-04-02 11:25:28 | INFO | app.services.diff_service | related_files_detected path=staging_transformations_logic.py related=[]
+2026-04-02 11:25:28 | INFO | app.services.diff_service | file_change path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_count=0
+2026-04-02 11:25:28 | INFO | app.services.diff_service | related_files_detected path=todo_manager.py related=[]
+2026-04-02 11:25:28 | INFO | app.services.diff_service | file_change path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_count=0
+2026-04-02 11:25:28 | INFO | app.services.diff_service | repo_files_done total=4
+2026-04-02 11:25:28 | INFO | app.routes | Discovered scripts: 4
+2026-04-02 11:25:28 | INFO | app.routes | Starting documentation pipeline...
+2026-04-02 11:25:28 | INFO | app.routes | Processing [1/4] my_Calculator (status=unchanged)
+2026-04-02 11:25:28 | INFO | app.routes | script_input script=my_Calculator path=my_Calculator.py status=unchanged content_len=736 patch_len=0 related_files=[]
+2026-04-02 11:25:29 | INFO | app.services.confluence_service | confluence_find_found title=My Calculator page_id=19333121
+2026-04-02 11:25:29 | INFO | app.routes | RESULT | script=my_Calculator | status=SKIPPED | reason=already_synced | time=0.35s
+2026-04-02 11:25:29 | INFO | app.routes | Processing [2/4] policytransaction (status=modified)
+2026-04-02 11:25:29 | INFO | app.routes | script_input script=policytransaction path=policytransaction.py status=modified content_len=3139 patch_len=490 related_files=['staging_transformations_logic.py']
+2026-04-02 11:25:29 | INFO | app.services.confluence_service | confluence_find_found title=Policy Transaction page_id=18612225
+2026-04-02 11:25:29 | INFO | app.routes | Running | script=policytransaction | stage=summarizing
+2026-04-02 11:25:29 | INFO | app.services.deepseek_service | LLM_INPUT_START script=policytransaction prompt_len=6931
+2026-04-02 11:25:29 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=policytransaction body=You are generating enterprise engineering documentation for Confluence.
 Return ONLY valid HTML snippet (no markdown fences) using these tags only: h3, h4, p, ul, li, table, thead, tbody, tr, th, td, code, strong.
 Do NOT include full source code dumps, <pre> blocks, or complete function bodies.
 Use inline style attributes on table/th/td to apply a clean blue theme suitable for Confluence: light blue table background, darker blue header row, white header text, subtle borders, readable padding, and alternating row shading.
@@ -85,7 +66,7 @@ If no mapping exists, include one row with N/A values and note why.
 
 Repository: pratikfnu95/autodoc-notebook-poc
 Branch: refs/heads/main
-Commit Range: d010a09b836349d12d5bc5fbc313f6a1f5032327 -> e87391da5b0caeab68cfe91d161e826f164b7065
+Commit Range: 4a2879c6eedf8cb005d4602ef61b86b9bfa30562 -> 4c73ef974abaef634a026ea1376ee3f60b37581f
 
 File Path: policytransaction.py
 Change Type: existing script updated
@@ -113,7 +94,7 @@ stg_df = spark.sql("""
     acc.Producercode_newValue AS producer_code,
     CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
     CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
-    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
+    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
     CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
     pol.State_newValue AS state,
     CASE
@@ -236,175 +217,163 @@ Patch (if available):
      acc.Producercode_newValue AS producer_code,
      CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
      CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
--    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
-+    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
+-    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
++    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
      CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
      pol.State_newValue AS state,
      CASE
-2026-04-02 02:54:10 | INFO | app.services.deepseek_service | LLM_INPUT_END script=policytransaction
-2026-04-02 02:54:10 | INFO | app.services.deepseek_service | deepseek_request_prepare script=policytransaction path=policytransaction.py model=deepseek-chat prompt_len=6931
-2026-04-02 02:54:10 | INFO | app.services.deepseek_service | deepseek_request_attempt script=policytransaction attempt=1/3
-2026-04-02 02:55:52 | INFO | app.services.deepseek_service | deepseek_response_ok script=policytransaction
-2026-04-02 02:55:52 | INFO | app.services.deepseek_service | LLM_RESPONSE script=policytransaction body=<h3>Purpose</h3>
-<p>Stage and deduplicate policy transaction data from XML-flattened source tables, then merge into a downstream mart table. The script transforms raw policy and account data, ensures the latest record per policy and transaction date is selected, and performs an upsert into the target.</p>
+2026-04-02 11:25:29 | INFO | app.services.deepseek_service | LLM_INPUT_END script=policytransaction
+2026-04-02 11:25:29 | INFO | app.services.deepseek_service | deepseek_request_prepare script=policytransaction path=policytransaction.py model=deepseek-chat prompt_len=6931
+2026-04-02 11:25:29 | INFO | app.services.deepseek_service | deepseek_request_attempt script=policytransaction attempt=1/3
+2026-04-02 11:27:10 | INFO | app.services.deepseek_service | deepseek_response_ok script=policytransaction
+2026-04-02 11:27:10 | INFO | app.services.deepseek_service | LLM_RESPONSE script=policytransaction body=<h3>Purpose</h3>
+<p>This script stages and deduplicates policy transaction data from XML-flattened source tables, then merges the processed records into a downstream mart table. It handles data type casting, business logic for indicator fields, and ensures only the latest record per policy and transaction date is loaded.</p>
 
 <h3>High-Level Flow</h3>
-<ul>
-<li>Execute dependent notebook <code>staging_transformations_logic</code> to create temporary views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code>.</li>
-<li>Query the temporary views via Spark SQL to join policy and account data, applying type casting and a conditional logic for <code>is_fully_earned_ind</code>.</li>
-<li>Apply a window function to deduplicate records, keeping only the most recent entry per <code>policy_number</code> and <code>transaction_effective_date</code> based on <code>load_ts</code>.</li>
-<li>Create a temporary view <code>vw_policy_transaction_stage</code> from the deduplicated DataFrame.</li>
-<li>Execute a SQL MERGE statement to insert new records or update existing ones in the target table <code>mart.policy_transaction</code>.</li>
-</ul>
+<p>The script executes in sequence: 1) Run the dependent notebook <code>staging_transformations_logic</code> to create temporary source views. 2) Query and join the source views (<code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code>), applying transformations and casting. 3) Deduplicate records using a window function partitioned by <code>policy_number</code> and <code>transaction_effective_date</code>, keeping the most recent by <code>load_ts</code>. 4) Create a temporary view <code>vw_policy_transaction_stage</code>. 5) Execute a SQL MERGE statement to upsert data into the target table <code>mart.policy_transaction</code>.</p>
 
 <h3>Cross-File Dependencies</h3>
-<table style="border-collapse: collapse; width: 100%; background-color: #f0f8ff;">
-<thead style="background-color: #1e3a8a; color: white;">
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+<thead style="background-color: #2E5A8C; color: white;">
 <tr>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Referenced Script</th>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Relation Type</th>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Key Usage</th>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Impact</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Referenced Script</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Relation Type</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Key Usage</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Impact</th>
 </tr>
 </thead>
 <tbody>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">staging_transformations_logic.py</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">%run execution</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Creates source views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code> used in the main SQL query.</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Failure to run this notebook will cause missing source views and query failure.</td>
-</tr>
-<tr style="background-color: #f8fafc;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">staging_transformations_logic.py</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Data source provider</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Defines the schema and data extraction logic from the raw <code>policy_xml</code> table.</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Changes to the source query logic directly affect the input data quality and columns available.</td>
+<tr style="background-color: #F0F8FF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">staging_transformations_logic.py</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Notebook Execution</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">%run command to create source views vw_policy_xml_raw and vw_account_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Script failure if dependent notebook fails; provides essential source data.</td>
 </tr>
 </tbody>
 </table>
 
 <h3>Input/Output Behavior</h3>
-<p><strong>Input:</strong> Reads from temporary views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code> which are sourced from the <code>policy_xml</code> table. The views contain new/old value columns from flattened XML.</p>
-<p><strong>Processing:</strong> Joins policy and account data, casts data types, calculates <code>premium_change_amt</code>, deduplicates using a window function, and creates a staging view.</p>
-<p><strong>Output:</strong> Performs a MERGE into the target table <code>mart.policy_transaction</code>. The function does not return a value; it executes side-effect operations (view creation and table merge).</p>
+<p><strong>Input:</strong> Reads from temporary views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code> (populated by the dependent notebook). These views originate from the <code>policy_xml</code> table.</p>
+<p><strong>Processing:</strong> Applies SQL transformations, deduplication via <code>Window.partitionBy</code> and <code>F.row_number()</code>, and creates the staging view <code>vw_policy_transaction_stage</code>.</p>
+<p><strong>Output:</strong> Merges data into the target table <code>mart.policy_transaction</code>. The merge uses <code>policy_number</code> and <code>transaction_effective_date</code> as the match keys, performing updates on matches and inserts on non-matches.</p>
 
 <h3>Source to Target Mapping</h3>
-<table style="border-collapse: collapse; width: 100%; background-color: #f0f8ff;">
-<thead style="background-color: #1e3a8a; color: white;">
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+<thead style="background-color: #2E5A8C; color: white;">
 <tr>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Source Object</th>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Source Field/Expression</th>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Transformation/Rule</th>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Target Object</th>
-<th style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">Target Field</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Source Object</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Source Field/Expression</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Transformation/Rule</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Target Object</th>
+<th style="border: 1px solid #C0C0C0; padding: 8px; text-align: left;">Target Field</th>
 </tr>
 </thead>
 <tbody>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">PolicyNumber_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Direct mapping, aliased</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">policy_number</td>
+<tr style="background-color: #F0F8FF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">PolicyNumber_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">policy_number</td>
 </tr>
-<tr style="background-color: #f8fafc;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">PolicyRef_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Direct mapping, aliased</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">policy_ref</td>
+<tr style="background-color: #FFFFFF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">PolicyRef_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">policy_ref</td>
 </tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_account_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">AccountNumber_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Direct mapping, aliased</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">account_number</td>
+<tr style="background-color: #F0F8FF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_account_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">AccountNumber_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">account_number</td>
 </tr>
-<tr style="background-color: #f8fafc;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">DeckNumber_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">CAST to STRING</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">deck_number</td>
+<tr style="background-color: #FFFFFF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">DeckNumber_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">CAST AS STRING</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">deck_number</td>
 </tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">TransactionEffectiveDate_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">CAST to TIMESTAMP</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">transaction_effective_date</td>
+<tr style="background-color: #F0F8FF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">TransactionEffectiveDate_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">CAST AS TIMESTAMP</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">transaction_effective_date</td>
 </tr>
-<tr style="background-color: #f8fafc;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">WrittenPremium_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">CAST to DECIMAL(18,6)</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">written_premium</td>
+<tr style="background-color: #FFFFFF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">WrittenPremium_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">CAST AS DECIMAL(18,3)</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">written_premium</td>
 </tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">AnnualPremium_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">CAST to DECIMAL(18,2)</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">annual_premium</td>
+<tr style="background-color: #F0F8FF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">AnnualPremium_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">CAST AS DECIMAL(18,2)</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">annual_premium</td>
 </tr>
-<tr style="background-color: #f8fafc;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">State_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Direct mapping</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">state</td>
+<tr style="background-color: #FFFFFF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">State_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">state</td>
 </tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">IsFullyEarned_newValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">CASE expression mapping 'Eligible' to Y, else N</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">is_fully_earned_ind</td>
+<tr style="background-color: #F0F8FF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">vw_policy_xml_raw</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">IsFullyEarned_newValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">CASE expression mapping 'Eligible' to Y, else N</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">is_fully_earned_ind</td>
 </tr>
-<tr style="background-color: #f8fafc;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">vw_policy_xml_raw</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">WrittenPremium_newValue - WrittenPremium_oldValue</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Difference after CAST to DECIMAL(18,3)</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">premium_change_amt</td>
+<tr style="background-color: #FFFFFF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Derived</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">WrittenPremium_newValue - WrittenPremium_oldValue</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Arithmetic subtraction of decimal values</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">premium_change_amt</td>
 </tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #cbd5e1; padding: 8px;">System function</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">current_timestamp()</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">Direct call</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #cbd5e1; padding: 8px;">load_ts</td>
+<tr style="background-color: #F0F8FF;">
+<td style="border: 1px solid #C0C0C0; padding: 8px;">System Function</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">current_timestamp()</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">Call to generate load timestamp</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">mart.policy_transaction</td>
+<td style="border: 1px solid #C0C0C0; padding: 8px;">load_ts</td>
 </tr>
 </tbody>
 </table>
 
 <h3>Recent Change Summary</h3>
-<p>The precision of the <code>written_premium</code> field was increased from <code>DECIMAL(18,3)</code> to <code>DECIMAL(18,6)</code> in the staging SQL SELECT statement. This change allows for higher fractional precision in the written premium amount during the initial data extraction and casting.</p>
+<p>The precision of the <code>written_premium</code> field was reduced from <code>DECIMAL(18,6)</code> to <code>DECIMAL(18,3)</code> in the CAST expression within the main staging SQL query. This change aligns the staging precision with the target table's expected scale, potentially truncating fractional cents beyond three decimal places.</p>
 
 <h3>Jira Story Traceability</h3>
 <p>No Jira story references are present in the provided code or commit context.</p>
 
 <h3>Risks / Follow-ups</h3>
-<p><strong>Data Type Inconsistency:</strong> The <code>premium_change_amt</code> calculation still uses <code>DECIMAL(18,3)</code> casting for subtraction, while <code>written_premium</code> is now <code>DECIMAL(18,6)</code>. This may cause truncation or rounding differences between the stored premium and the calculated change amount.</p>
-<p><strong>Undefined Variables in CASE:</strong> The CASE expression uses literals <code>Y</code> and <code>N</code> without quotes, which are likely intended as string literals <code>'Y'</code> and <code>'N'</code>. This will cause a syntax or runtime error (NameError) as <code>Y</code> and <code>N</code> are not defined.</p>
-<p><strong>Missing Producer Code in MERGE:</strong> The column <code>producer_code</code> is selected in the staging query but is not included in the MERGE statement's UPDATE or INSERT column lists. This data will be lost and not persisted to the target table.</p>
-2026-04-02 02:55:52 | INFO | app.routes | Running | script=policytransaction | stage=confluence_publish
-2026-04-02 02:55:52 | INFO | app.services.confluence_service | confluence_upsert_start title=Policy Transaction path=policytransaction.py status=modified summary_len=10388
-2026-04-02 02:55:52 | INFO | app.services.confluence_service | confluence_find_found title=Policy Transaction page_id=18612225
-2026-04-02 02:55:53 | INFO | app.services.confluence_service | confluence_update_ok title=Policy Transaction page_id=18612225
-2026-04-02 02:55:53 | INFO | app.routes | RESULT | script=policytransaction | status=UPDATED | deepseek=101.72s | publish=1.06s | total=103.02s
-2026-04-02 02:55:53 | INFO | app.routes | Processing [2/4] simple_calculator (status=unchanged)
-2026-04-02 02:55:53 | INFO | app.routes | script_input script=simple_calculator path=simple_calculator.py status=unchanged content_len=837 patch_len=0 related_files=[]
-2026-04-02 02:55:53 | INFO | app.services.confluence_service | confluence_find_found title=simple_calculator page_id=327715
-2026-04-02 02:55:53 | INFO | app.routes | RESULT | script=simple_calculator | status=SKIPPED | reason=already_synced | time=0.20s
-2026-04-02 02:55:53 | INFO | app.routes | Processing [3/4] staging_transformations_logic (status=unchanged)
-2026-04-02 02:55:53 | INFO | app.routes | script_input script=staging_transformations_logic path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_files=[]
-2026-04-02 02:55:54 | INFO | app.services.confluence_service | confluence_find_not_found title=staging_transformations_logic
-2026-04-02 02:55:54 | INFO | app.routes | Running | script=staging_transformations_logic | stage=summarizing
-2026-04-02 02:55:54 | INFO | app.services.deepseek_service | LLM_INPUT_START script=staging_transformations_logic prompt_len=3273
-2026-04-02 02:55:54 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=staging_transformations_logic body=You are generating enterprise engineering documentation for Confluence.
+<p><strong>Syntax Error in CASE Expression:</strong> The CASE statement for <code>is_fully_earned_ind</code> uses unquoted literals <code>Y</code> and <code>N</code> (lines 23-25). These should be string literals <code>'Y'</code> and <code>'N'</code> to avoid a runtime error.</p>
+<p><strong>Missing Producer Code in MERGE:</strong> The column <code>producer_code</code> is selected in the staging query but is not included in the MERGE statement's UPDATE or INSERT column lists. This causes data loss for this field.</p>
+<p><strong>Data Truncation Risk:</strong> The change from <code>DECIMAL(18,6)</code> to <code>DECIMAL(18,3)</code> for <code>written_premium</code> may intentionally truncate data. Ensure business logic accepts this reduction in fractional precision.</p>
+2026-04-02 11:27:10 | INFO | app.routes | Running | script=policytransaction | stage=confluence_publish
+2026-04-02 11:27:10 | INFO | app.services.confluence_service | confluence_upsert_start title=Policy Transaction path=policytransaction.py status=modified summary_len=9612
+2026-04-02 11:27:10 | INFO | app.services.confluence_service | confluence_find_found title=Policy Transaction page_id=18612225
+2026-04-02 11:27:11 | INFO | app.services.confluence_service | confluence_update_ok title=Policy Transaction page_id=18612225
+2026-04-02 11:27:11 | INFO | app.routes | RESULT | script=policytransaction | status=UPDATED | deepseek=101.29s | publish=1.14s | total=102.62s
+2026-04-02 11:27:11 | INFO | app.routes | Processing [3/4] staging_transformations_logic (status=unchanged)
+2026-04-02 11:27:11 | INFO | app.routes | script_input script=staging_transformations_logic path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_files=[]
+2026-04-02 11:27:11 | INFO | app.services.confluence_service | confluence_find_found title=Staging Transformations Logic page_id=18350089
+2026-04-02 11:27:11 | INFO | app.routes | RESULT | script=staging_transformations_logic | status=SKIPPED | reason=already_synced | time=0.17s
+2026-04-02 11:27:11 | INFO | app.routes | Processing [4/4] todo_manager (status=unchanged)
+2026-04-02 11:27:11 | INFO | app.routes | script_input script=todo_manager path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_files=[]
+2026-04-02 11:27:12 | INFO | app.services.confluence_service | confluence_find_not_found title=Todo Manager
+2026-04-02 11:27:12 | INFO | app.routes | Running | script=todo_manager | stage=summarizing
+2026-04-02 11:27:12 | INFO | app.services.deepseek_service | LLM_INPUT_START script=todo_manager prompt_len=3856
+2026-04-02 11:27:12 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=todo_manager body=You are generating enterprise engineering documentation for Confluence.
 Return ONLY valid HTML snippet (no markdown fences) using these tags only: h3, h4, p, ul, li, table, thead, tbody, tr, th, td, code, strong.
 Do NOT include full source code dumps, <pre> blocks, or complete function bodies.
 Use inline style attributes on table/th/td to apply a clean blue theme suitable for Confluence: light blue table background, darker blue header row, white header text, subtle borders, readable padding, and alternating row shading.
@@ -431,257 +400,219 @@ If no mapping exists, include one row with N/A values and note why.
 
 Repository: pratikfnu95/autodoc-notebook-poc
 Branch: refs/heads/main
-Commit Range: d010a09b836349d12d5bc5fbc313f6a1f5032327 -> e87391da5b0caeab68cfe91d161e826f164b7065
+Commit Range: 4a2879c6eedf8cb005d4602ef61b86b9bfa30562 -> 4c73ef974abaef634a026ea1376ee3f60b37581f
 
-File Path: staging_transformations_logic.py
+File Path: todo_manager.py
 Change Type: script documentation sync
 
 Main File Content:
-# Databricks notebook source
-# Databricks notebook
 
-# Step 1: Read raw XML-flattened table
-src_df = spark.sql("""
-    SELECT
-        PolicyNumber_newValue,
-        PolicyRef_newValue,
-        DeckNumber_newValue,
-        TransactionEffectiveDate_newValue,
-        WrittenPremium_newValue,
-        AnnualPremium_newValue,
-        State_newValue,
-        IsFullyEarned_newValue
-    FROM policy_xml
-""")
 
-# Step 2: Create temp view from source dataframe
-src_df.createOrReplaceTempView("vw_policy_xml_raw")
+import json
+import os
+from datetime import datetime
 
-# COMMAND ----------
+TODO_FILE = "todos.json"
 
-# Databricks notebook
+def load_todos():
+    if not os.path.exists(TODO_FILE):
+        return []
+    with open(TODO_FILE, "r") as f:
+        return json.load(f)
 
-# Step 1: Read raw XML-flattened table
-src_df2 = spark.sql("""
-    SELECT
-        AccountNumber_newValue,
-        PolicyRef_newValue,
-        Producercode_newValue
-    FROM policy_xml
-""")
+def save_todos(todos):
+    with open(TODO_FILE, "w") as f:
+        json.dump(todos, f, indent=2)
 
-# Step 2: Create temp view from source dataframe
-src_df2.createOrReplaceTempView("vw_account_xml_raw")
+def list_todos(todos):
+    if not todos:
+        print("✅ No tasks.")
+    else:
+        for i, todo in enumerate(todos, 1):
+            print(f"{i}. {todo['task']} - {todo['status']} ({todo['created']})")
 
+def add_todo(todos):
+    task = input("Enter task: ")
+    todos.append({
+        "task": task,
+        "status": "Pending",
+        "created": datetime.now().strftime("%Y-%m-%d %H:%M")
+    })
+    print("📝 Task added.")
+
+def mark_done(todos):
+    list_todos(todos)
+    idx = int(input("Enter Task number to mark done: ")) - 1
+    if 0 <= idx < len(todos):
+        todos[idx]["status"] = "Done"
+        print("✅ Task marked as done.")
+
+def main():
+    todos = load_todos()
+    while True:
+        print("\n1. List  2. Add  3. Done  4. Exit")
+        choice = input("Choose: ")
+        if choice == "1":
+            list_todos(todos)
+        elif choice == "2":
+            add_todo(todos)
+        elif choice == "3":
+            mark_done(todos)
+        elif choice == "4":
+            save_todos(todos)
+            break
+        else:
+            print("❌ Invalid option.")
+
+if __name__ == "__main__":
+    main()
+
+     
 
 Related File Contents (for cross-file tracing):
 None
 
 Patch (if available):
 
-2026-04-02 02:55:54 | INFO | app.services.deepseek_service | LLM_INPUT_END script=staging_transformations_logic
-2026-04-02 02:55:54 | INFO | app.services.deepseek_service | deepseek_request_prepare script=staging_transformations_logic path=staging_transformations_logic.py model=deepseek-chat prompt_len=3273
-2026-04-02 02:55:54 | INFO | app.services.deepseek_service | deepseek_request_attempt script=staging_transformations_logic attempt=1/3
-2026-04-02 02:57:16 | INFO | app.services.deepseek_service | deepseek_response_ok script=staging_transformations_logic
-2026-04-02 02:57:16 | INFO | app.services.deepseek_service | LLM_RESPONSE script=staging_transformations_logic body=<h3>Purpose</h3>
-<p>This script performs staging transformations by reading flattened XML data from the <code>policy_xml</code> table, selecting specific fields, and creating temporary Spark SQL views for downstream processing. It prepares two distinct views: <code>vw_policy_xml_raw</code> for policy-level attributes and <code>vw_account_xml_raw</code> for account-level attributes.</p>
+2026-04-02 11:27:12 | INFO | app.services.deepseek_service | LLM_INPUT_END script=todo_manager
+2026-04-02 11:27:12 | INFO | app.services.deepseek_service | deepseek_request_prepare script=todo_manager path=todo_manager.py model=deepseek-chat prompt_len=3856
+2026-04-02 11:27:12 | INFO | app.services.deepseek_service | deepseek_request_attempt script=todo_manager attempt=1/3
+2026-04-02 11:28:13 | INFO | app.services.deepseek_service | deepseek_response_ok script=todo_manager
+2026-04-02 11:28:13 | INFO | app.services.deepseek_service | LLM_RESPONSE script=todo_manager body=<h3>Purpose</h3>
+<p>Provides a command-line interface for managing a simple to-do list. The script allows users to add tasks, list existing tasks, mark tasks as done, and persist the to-do list to a JSON file.</p>
 
 <h3>High-Level Flow</h3>
-<ol>
-<li>Execute Spark SQL query to select policy-related fields (<code>PolicyNumber_newValue</code>, <code>PolicyRef_newValue</code>, <code>DeckNumber_newValue</code>, <code>TransactionEffectiveDate_newValue</code>, <code>WrittenPremium_newValue</code>, <code>AnnualPremium_newValue</code>, <code>State_newValue</code>, <code>IsFullyEarned_newValue</code>) from the <code>policy_xml</code> table.</li>
-<li>Create temporary view <code>vw_policy_xml_raw</code> from the resulting DataFrame <code>src_df</code>.</li>
-<li>Execute a second Spark SQL query to select account-related fields (<code>AccountNumber_newValue</code>, <code>PolicyRef_newValue</code>, <code>Producercode_newValue</code>) from the same <code>policy_xml</code> table.</li>
-<li>Create temporary view <code>vw_account_xml_raw</code> from the resulting DataFrame <code>src_df2</code>.</li>
-</ol>
+<p>The <code>main()</code> function loads existing tasks from <code>todos.json</code> into a list. It presents a menu loop for user interaction. Choices trigger functions: <code>list_todos()</code> displays tasks, <code>add_todo()</code> appends a new task with a "Pending" status, <code>mark_done()</code> updates a selected task's status to "Done". On exit, <code>save_todos()</code> writes the updated list back to the JSON file.</p>
 
 <h3>Cross-File Dependencies</h3>
-<table style="border-collapse: collapse; width: 100%; background-color: #f0f8ff; border: 1px solid #cce0ff;">
-<thead style="background-color: #0066cc; color: white;">
+<table style="border-collapse: collapse; width: 100%; background-color: #f0f8ff;">
+<thead style="background-color: #1e6bb8; color: white;">
 <tr>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Referenced Script</th>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Relation Type</th>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Key Usage</th>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Impact</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Referenced Script</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Relation Type</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Key Usage</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Impact</th>
 </tr>
 </thead>
 <tbody>
 <tr style="background-color: #ffffff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">None</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">N/A</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">No external Python/notebook dependencies are imported or called.</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Script operates independently; changes do not propagate to other scripts.</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">todos.json</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Data File</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Read by <code>load_todos()</code>, written by <code>save_todos()</code></td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Persistence layer; missing file defaults to empty list.</td>
 </tr>
 </tbody>
 </table>
 
 <h3>Input/Output Behavior</h3>
-<p><strong>Input:</strong> Reads from the <code>policy_xml</code> table in Spark SQL. Assumes the table exists with the required schema and fields.</p>
-<p><strong>Output:</strong> Creates two temporary Spark SQL views: <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code>. These views are session-scoped and can be referenced in subsequent Spark SQL commands within the same Databricks notebook session. No persistent tables are written.</p>
+<p>The script reads user input via <code>input()</code> for menu selection, task description, and task index. It prints status messages and the task list to the console. The primary I/O is file-based: the <code>todos.json</code> file is read on start and written on exit. Functions return <code>None</code>; state is managed via the mutable <code>todos</code> list passed between functions.</p>
 
 <h3>Source to Target Mapping</h3>
-<table style="border-collapse: collapse; width: 100%; background-color: #f0f8ff; border: 1px solid #cce0ff;">
-<thead style="background-color: #0066cc; color: white;">
+<table style="border-collapse: collapse; width: 100%; background-color: #f0f8ff;">
+<thead style="background-color: #1e6bb8; color: white;">
 <tr>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Source Object</th>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Source Field/Expression</th>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Transformation/Rule</th>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Target Object</th>
-<th style="border: 1px solid #99c2ff; padding: 8px;">Target Field</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Source Object</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Source Field/Expression</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Transformation/Rule</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Target Object</th>
+<th style="border: 1px solid #c9dff2; padding: 8px; text-align: left;">Target Field</th>
 </tr>
 </thead>
 <tbody>
 <tr style="background-color: #ffffff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">PolicyNumber_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">PolicyNumber_newValue</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">User Input</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;"><code>input("Enter task: ")</code></td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Assign to <code>task</code> variable</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">New todo dictionary</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">"task"</td>
 </tr>
-<tr style="background-color: #e6f2ff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">PolicyRef_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">PolicyRef_newValue</td>
-</tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">DeckNumber_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">DeckNumber_newValue</td>
-</tr>
-<tr style="background-color: #e6f2ff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">TransactionEffectiveDate_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">TransactionEffectiveDate_newValue</td>
+<tr style="background-color: #f0f8ff;">
+<td style="border: 1px solid #c9dff2; padding: 8px;"><code>datetime.now()</code></td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Current timestamp</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Format to string: <code>strftime("%Y-%m-%d %H:%M")</code></td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">New todo dictionary</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">"created"</td>
 </tr>
 <tr style="background-color: #ffffff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">WrittenPremium_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">WrittenPremium_newValue</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Hardcoded</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">String "Pending"</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Direct assignment</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">New todo dictionary</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">"status"</td>
 </tr>
-<tr style="background-color: #e6f2ff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">AnnualPremium_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">AnnualPremium_newValue</td>
-</tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">State_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">State_newValue</td>
-</tr>
-<tr style="background-color: #e6f2ff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">IsFullyEarned_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_policy_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">IsFullyEarned_newValue</td>
+<tr style="background-color: #f0f8ff;">
+<td style="border: 1px solid #c9dff2; padding: 8px;">User Input</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;"><code>input("Enter Task number to mark done: ")</code></td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Convert to int, adjust to zero-based index</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Selected todo dictionary in <code>todos</code> list</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">"status" (updated to "Done")</td>
 </tr>
 <tr style="background-color: #ffffff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">AccountNumber_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_account_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">AccountNumber_newValue</td>
-</tr>
-<tr style="background-color: #e6f2ff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">PolicyRef_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_account_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">PolicyRef_newValue</td>
-</tr>
-<tr style="background-color: #ffffff;">
-<td style="border: 1px solid #99c2ff; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Producercode_newValue</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Direct selection</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">vw_account_xml_raw view</td>
-<td style="border: 1px solid #99c2ff; padding: 8px;">Producercode_newValue</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;"><code>todos</code> list</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">All dictionaries</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">JSON serialization via <code>json.dump()</code></td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">todos.json file</td>
+<td style="border: 1px solid #c9dff2; padding: 8px;">Entire file content</td>
 </tr>
 </tbody>
 </table>
 
 <h3>Recent Change Summary</h3>
-<p>This is a documentation sync change. The script content itself remains unchanged from the previous commit. The update aligns the Confluence documentation with the existing staging transformation logic in <code>staging_transformations_logic.py</code>.</p>
+<p>This is a new script creation. The patch context indicates a "script documentation sync," meaning this file was likely added to the repository to establish a baseline for documentation generation. No functional modifications are present in the provided commit range for this file.</p>
 
 <h3>Jira Story Traceability</h3>
-<p>No Jira story references are present in the provided code or commit context.</p>
+<p>No Jira story references are embedded in the provided code or commit context.</p>
 
 <h3>Risks / Follow-ups</h3>
 <p>No concrete risks identified from the provided code.</p>
-2026-04-02 02:57:16 | INFO | app.routes | Running | script=staging_transformations_logic | stage=confluence_publish
-2026-04-02 02:57:16 | INFO | app.services.confluence_service | confluence_upsert_start title=Staging Transformations Logic path=staging_transformations_logic.py status=unchanged summary_len=8652
-2026-04-02 02:57:17 | INFO | app.services.confluence_service | confluence_find_found title=Staging Transformations Logic page_id=18350089
-2026-04-02 02:57:17 | INFO | app.services.confluence_service | confluence_update_ok title=Staging Transformations Logic page_id=18350089
-2026-04-02 02:57:17 | INFO | app.routes | RESULT | script=staging_transformations_logic | status=UPDATED | deepseek=82.88s | publish=1.02s | total=84.10s
-2026-04-02 02:57:17 | INFO | app.routes | Processing [4/4] todo_manager (status=unchanged)
-2026-04-02 02:57:17 | INFO | app.routes | script_input script=todo_manager path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_files=[]
-2026-04-02 02:57:18 | INFO | app.services.confluence_service | confluence_find_found title=todo_manager page_id=622596
-2026-04-02 02:57:18 | INFO | app.routes | RESULT | script=todo_manager | status=SKIPPED | reason=already_synced | time=0.19s
-2026-04-02 02:57:18 | INFO | app.routes | 
-2026-04-02 02:57:18 | INFO | app.routes | RUN SUMMARY | pending_review=0 | updated=2 | deleted=0 | skipped=2 | failed=0 | total_time=188.71s
-2026-04-02 02:57:18 | INFO | app.routes | === Autodoc Run Complete ===
-2026-04-02 02:57:51 | INFO | werkzeug |  * Detected change in '/Users/pratik/Desktop/autodoc-service/app/config.py', reloading
-2026-04-02 02:57:51 | INFO | werkzeug |  * Restarting with stat
-2026-04-02 02:57:52 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:57:52 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:57:56 | INFO | werkzeug |  * Detected change in '/Users/pratik/Desktop/autodoc-service/app/routes.py', reloading
-2026-04-02 02:57:56 | INFO | werkzeug |  * Restarting with stat
-2026-04-02 02:57:56 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:57:56 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:58:32 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.0.0.53:5000
-2026-04-02 02:58:32 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
-2026-04-02 02:58:32 | INFO | werkzeug |  * Restarting with stat
-2026-04-02 02:58:32 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 02:58:32 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 02:58:46 | INFO | app.routes | webhook_received event=push delivery_id=90ace0c6-2e2c-11f1-9d2c-1256d3cac761 body_len=8875
-2026-04-02 02:58:46 | INFO | app.routes | signature_validation_start allow_unsigned=False has_secret=True signature_present=True body_len=8875
-2026-04-02 02:58:46 | INFO | app.routes | signature_validation_result valid=True
-2026-04-02 02:58:46 | INFO | app.routes | payload_parse=json_body keys=['after', 'base_ref', 'before', 'commits', 'compare', 'created', 'deleted', 'forced', 'head_commit', 'pusher', 'ref', 'repository', 'sender']
-2026-04-02 02:58:46 | INFO | app.routes | github_payload_full={"ref": "refs/heads/main", "before": "d010a09b836349d12d5bc5fbc313f6a1f5032327", "after": "e87391da5b0caeab68cfe91d161e826f164b7065", "repository": {"id": 1151765131, "node_id": "R_kgDORKaKiw", "name": "autodoc-notebook-poc", "full_name": "pratikfnu95/autodoc-notebook-poc", "private": false, "owner": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "html_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "description": null, "fork": false, "url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc", "forks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/forks", "keys_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/keys{/key_id}", "collaborators_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/collaborators{/collaborator}", "teams_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/teams", "hooks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/hooks", "issue_events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/events{/number}", "events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/events", "assignees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/assignees{/user}", "branches_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/branches{/branch}", "tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/tags", "blobs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/blobs{/sha}", "git_tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/tags{/sha}", "git_refs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/refs{/sha}", "trees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/trees{/sha}", "statuses_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/statuses/{sha}", "languages_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/languages", "stargazers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/stargazers", "contributors_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contributors", "subscribers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscribers", "subscription_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscription", "commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/commits{/sha}", "git_commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/commits{/sha}", "comments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/comments{/number}", "issue_comment_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/comments{/number}", "contents_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contents/{+path}", "compare_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/compare/{base}...{head}", "merges_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/merges", "archive_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/{archive_format}{/ref}", "downloads_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/downloads", "issues_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues{/number}", "pulls_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/pulls{/number}", "milestones_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/milestones{/number}", "notifications_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/notifications{?since,all,participating}", "labels_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/labels{/name}", "releases_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/releases{/id}", "deployments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/deployments", "created_at": 1770414456, "updated_at": "2026-04-02T00:01:43Z", "pushed_at": 1775090435, "git_url": "git://github.com/pratikfnu95/autodoc-notebook-poc.git", "ssh_url": "git@github.com:pratikfnu95/autodoc-notebook-poc.git", "clone_url": "https://github.com/pratikfnu95/autodoc-notebook-poc.git", "svn_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "homepage": null, "size": 31, "stargazers_count": 0, "watchers_count": 0, "language": "Python", "has_issues": true, "has_projects": true, "has_downloads": true, "has_wiki": true, "has_pages": false, "has_discussions": false, "forks_count": 0, "mirror_url": null, "archived": false, "disabled": false, "open_issues_count": 0, "license": null, "allow_forking": true, "is_template": false, "web_commit_signoff_required": false, "has_pull_requests": true, "pull_request_creation_policy": "all", "topics": [], "visibility": "public", "forks": 0, "open_issues": 0, "watchers": 0, "default_branch": "main", "stargazers": 0, "master_branch": "main"}, "pusher": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com"}, "forced": false, "sender": {"login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "created": false, "deleted": false, "base_ref": null, "compare": "https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c", "commits": [{"id": "99759643d29beb961218d440c1c8cf04787bd498", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": false, "message": "check444", "timestamp": "2026-04-02T00:40:19Z", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/99759643d29beb961218d440c1c8cf04787bd498", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "committer": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}, {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}], "head_commit": {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}}
-2026-04-02 02:58:46 | INFO | app.services.github_service | github_context repo=pratikfnu95/autodoc-notebook-poc ref=refs/heads/main before=d010a09b836349d12d5bc5fbc313f6a1f5032327 after=e87391da5b0caeab68cfe91d161e826f164b7065 source_branch=KAN-7 jira=KAN-7
-2026-04-02 02:58:46 | INFO | app.routes | context_extracted={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
-2026-04-02 02:58:46 | INFO | app.routes | process_push_event_started context={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
-2026-04-02 02:58:46 | INFO | app.routes | 
-2026-04-02 02:58:46 | INFO | werkzeug | 127.0.0.1 - - [02/Apr/2026 02:58:46] "[35m[1mPOST /webhook/github HTTP/1.1[0m" 202 -
-2026-04-02 02:58:46 | INFO | app.routes | === Autodoc Run Start ===
-2026-04-02 02:58:46 | INFO | app.routes | Repo: pratikfnu95/autodoc-notebook-poc
-2026-04-02 02:58:46 | INFO | app.routes | Branch: refs/heads/main
-2026-04-02 02:58:46 | INFO | app.routes | Source branch: KAN-7
-2026-04-02 02:58:46 | INFO | app.routes | Jira ticket: KAN-7
-2026-04-02 02:58:46 | INFO | app.routes | Scanning python files and commit diff...
-2026-04-02 02:58:46 | INFO | app.services.diff_service | github_compare_parsed base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 python_changed=1
-2026-04-02 02:58:46 | INFO | app.services.diff_service | github_tree_parsed ref=e87391da5b0caeab68cfe91d161e826f164b7065 python_total=4
-2026-04-02 02:58:46 | INFO | app.services.diff_service | repo_files_start repo=pratikfnu95/autodoc-notebook-poc base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 compare_map=1 current_files=4
-2026-04-02 02:58:47 | INFO | app.services.diff_service | related_files_detected path=policytransaction.py related=['staging_transformations_logic.py']
-2026-04-02 02:58:47 | INFO | app.services.diff_service | file_change path=policytransaction.py status=modified content_len=3139 patch_len=490 related_count=1
-2026-04-02 02:58:47 | INFO | app.services.diff_service | related_files_detected path=simple_calculator.py related=[]
-2026-04-02 02:58:47 | INFO | app.services.diff_service | file_change path=simple_calculator.py status=unchanged content_len=837 patch_len=0 related_count=0
-2026-04-02 02:58:47 | INFO | app.services.diff_service | related_files_detected path=staging_transformations_logic.py related=[]
-2026-04-02 02:58:47 | INFO | app.services.diff_service | file_change path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_count=0
-2026-04-02 02:58:47 | INFO | app.services.diff_service | related_files_detected path=todo_manager.py related=[]
-2026-04-02 02:58:47 | INFO | app.services.diff_service | file_change path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_count=0
-2026-04-02 02:58:47 | INFO | app.services.diff_service | repo_files_done total=4
-2026-04-02 02:58:47 | INFO | app.routes | Discovered scripts: 4
-2026-04-02 02:58:47 | INFO | app.routes | Starting documentation pipeline...
-2026-04-02 02:58:47 | INFO | app.routes | Processing [1/4] policytransaction (status=modified)
-2026-04-02 02:58:47 | INFO | app.routes | script_input script=policytransaction path=policytransaction.py status=modified content_len=3139 patch_len=490 related_files=['staging_transformations_logic.py']
-2026-04-02 02:58:47 | INFO | app.services.confluence_service | confluence_find_not_found title=policytransaction
-2026-04-02 02:58:47 | INFO | app.routes | Running | script=policytransaction | stage=summarizing
-2026-04-02 02:58:47 | INFO | app.services.deepseek_service | LLM_INPUT_START script=policytransaction prompt_len=6931
-2026-04-02 02:58:47 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=policytransaction body=You are generating enterprise engineering documentation for Confluence.
+2026-04-02 11:28:13 | INFO | app.routes | Running | script=todo_manager | stage=confluence_publish
+2026-04-02 11:28:13 | INFO | app.services.confluence_service | confluence_upsert_start title=Todo Manager path=todo_manager.py status=unchanged summary_len=5630
+2026-04-02 11:28:13 | INFO | app.services.confluence_service | confluence_find_not_found title=Todo Manager
+2026-04-02 11:28:14 | INFO | app.services.confluence_service | confluence_create_ok title=Todo Manager page_id=18120715
+2026-04-02 11:28:14 | INFO | app.routes | RESULT | script=todo_manager | status=UPDATED | deepseek=61.61s | publish=0.91s | total=62.69s
+2026-04-02 11:28:14 | INFO | app.routes | 
+2026-04-02 11:28:14 | INFO | app.routes | RUN SUMMARY | pending_review=0 | updated=2 | deleted=0 | skipped=2 | failed=0 | total_time=167.20s
+2026-04-02 11:28:14 | INFO | app.routes | === Autodoc Run Complete ===
+2026-04-02 11:29:57 | INFO | app.routes | webhook_received event=push delivery_id=64e2f140-2ea6-11f1-993b-f39212be8a49 body_len=8872
+2026-04-02 11:29:57 | INFO | app.routes | signature_validation_start allow_unsigned=False has_secret=True signature_present=True body_len=8872
+2026-04-02 11:29:57 | INFO | app.routes | signature_validation_result valid=True
+2026-04-02 11:29:57 | INFO | app.routes | payload_parse=json_body keys=['after', 'base_ref', 'before', 'commits', 'compare', 'created', 'deleted', 'forced', 'head_commit', 'pusher', 'ref', 'repository', 'sender']
+2026-04-02 11:29:57 | INFO | app.routes | github_payload_full={"ref": "refs/heads/main", "before": "4a2879c6eedf8cb005d4602ef61b86b9bfa30562", "after": "4c73ef974abaef634a026ea1376ee3f60b37581f", "repository": {"id": 1151765131, "node_id": "R_kgDORKaKiw", "name": "autodoc-notebook-poc", "full_name": "pratikfnu95/autodoc-notebook-poc", "private": false, "owner": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "html_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "description": null, "fork": false, "url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc", "forks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/forks", "keys_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/keys{/key_id}", "collaborators_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/collaborators{/collaborator}", "teams_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/teams", "hooks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/hooks", "issue_events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/events{/number}", "events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/events", "assignees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/assignees{/user}", "branches_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/branches{/branch}", "tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/tags", "blobs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/blobs{/sha}", "git_tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/tags{/sha}", "git_refs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/refs{/sha}", "trees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/trees{/sha}", "statuses_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/statuses/{sha}", "languages_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/languages", "stargazers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/stargazers", "contributors_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contributors", "subscribers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscribers", "subscription_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscription", "commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/commits{/sha}", "git_commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/commits{/sha}", "comments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/comments{/number}", "issue_comment_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/comments{/number}", "contents_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contents/{+path}", "compare_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/compare/{base}...{head}", "merges_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/merges", "archive_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/{archive_format}{/ref}", "downloads_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/downloads", "issues_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues{/number}", "pulls_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/pulls{/number}", "milestones_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/milestones{/number}", "notifications_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/notifications{?since,all,participating}", "labels_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/labels{/name}", "releases_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/releases{/id}", "deployments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/deployments", "created_at": 1770414456, "updated_at": "2026-04-02T07:50:47Z", "pushed_at": 1775142759, "git_url": "git://github.com/pratikfnu95/autodoc-notebook-poc.git", "ssh_url": "git@github.com:pratikfnu95/autodoc-notebook-poc.git", "clone_url": "https://github.com/pratikfnu95/autodoc-notebook-poc.git", "svn_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "homepage": null, "size": 36, "stargazers_count": 0, "watchers_count": 0, "language": "Python", "has_issues": true, "has_projects": true, "has_downloads": true, "has_wiki": true, "has_pages": false, "has_discussions": false, "forks_count": 0, "mirror_url": null, "archived": false, "disabled": false, "open_issues_count": 0, "license": null, "allow_forking": true, "is_template": false, "web_commit_signoff_required": false, "has_pull_requests": true, "pull_request_creation_policy": "all", "topics": [], "visibility": "public", "forks": 0, "open_issues": 0, "watchers": 0, "default_branch": "main", "stargazers": 0, "master_branch": "main"}, "pusher": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com"}, "forced": false, "sender": {"login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "created": false, "deleted": false, "base_ref": null, "compare": "https://github.com/pratikfnu95/autodoc-notebook-poc/compare/4a2879c6eedf...4c73ef974aba", "commits": [{"id": "41d2706733b6a6581aedb3ce7213e9f16bdf2baa", "tree_id": "17d309d4d863b7a0491057eca19af378a89e6bcf", "distinct": false, "message": "test123", "timestamp": "2026-04-02T14:58:15Z", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/41d2706733b6a6581aedb3ce7213e9f16bdf2baa", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T14:58:15Z", "username": "pratikfnu95"}, "committer": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T14:58:15Z", "username": "pratikfnu95"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}, {"id": "4c73ef974abaef634a026ea1376ee3f60b37581f", "tree_id": "17d309d4d863b7a0491057eca19af378a89e6bcf", "distinct": true, "message": "Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123", "timestamp": "2026-04-02T11:12:39-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/4c73ef974abaef634a026ea1376ee3f60b37581f", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T11:12:39-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-02T11:12:39-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}], "head_commit": {"id": "4c73ef974abaef634a026ea1376ee3f60b37581f", "tree_id": "17d309d4d863b7a0491057eca19af378a89e6bcf", "distinct": true, "message": "Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123", "timestamp": "2026-04-02T11:12:39-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/4c73ef974abaef634a026ea1376ee3f60b37581f", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T11:12:39-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-02T11:12:39-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}}
+2026-04-02 11:29:57 | INFO | app.services.github_service | github_context repo=pratikfnu95/autodoc-notebook-poc ref=refs/heads/main before=4a2879c6eedf8cb005d4602ef61b86b9bfa30562 after=4c73ef974abaef634a026ea1376ee3f60b37581f source_branch=KAN-8 jira=KAN-8
+2026-04-02 11:29:57 | INFO | app.routes | context_extracted={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': '4a2879c6eedf8cb005d4602ef61b86b9bfa30562', 'after': '4c73ef974abaef634a026ea1376ee3f60b37581f', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/4a2879c6eedf...4c73ef974aba', 'head_commit_message': 'Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123', 'source_branch': 'KAN-8', 'jira_ticket_id': 'KAN-8', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-8', 'delivery_id': '64e2f140-2ea6-11f1-993b-f39212be8a49'}
+2026-04-02 11:29:57 | INFO | app.routes | process_push_event_started context={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': '4a2879c6eedf8cb005d4602ef61b86b9bfa30562', 'after': '4c73ef974abaef634a026ea1376ee3f60b37581f', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/4a2879c6eedf...4c73ef974aba', 'head_commit_message': 'Merge pull request #19 from pratikfnu95/KAN-8\n\ntest123', 'source_branch': 'KAN-8', 'jira_ticket_id': 'KAN-8', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-8', 'delivery_id': '64e2f140-2ea6-11f1-993b-f39212be8a49'}
+2026-04-02 11:29:57 | INFO | werkzeug | 127.0.0.1 - - [02/Apr/2026 11:29:57] "[35m[1mPOST /webhook/github HTTP/1.1[0m" 202 -
+2026-04-02 11:29:57 | INFO | app.routes | 
+2026-04-02 11:29:57 | INFO | app.routes | === Autodoc Run Start ===
+2026-04-02 11:29:57 | INFO | app.routes | Repo: pratikfnu95/autodoc-notebook-poc
+2026-04-02 11:29:57 | INFO | app.routes | Branch: refs/heads/main
+2026-04-02 11:29:57 | INFO | app.routes | Source branch: KAN-8
+2026-04-02 11:29:57 | INFO | app.routes | Jira ticket: KAN-8
+2026-04-02 11:29:57 | INFO | app.routes | Scanning python files and commit diff...
+2026-04-02 11:29:57 | INFO | app.services.diff_service | github_compare_parsed base=4a2879c6eedf8cb005d4602ef61b86b9bfa30562 head=4c73ef974abaef634a026ea1376ee3f60b37581f python_changed=1
+2026-04-02 11:29:58 | INFO | app.services.diff_service | github_tree_parsed ref=4c73ef974abaef634a026ea1376ee3f60b37581f python_total=4
+2026-04-02 11:29:58 | INFO | app.services.diff_service | repo_files_start repo=pratikfnu95/autodoc-notebook-poc base=4a2879c6eedf8cb005d4602ef61b86b9bfa30562 head=4c73ef974abaef634a026ea1376ee3f60b37581f compare_map=1 current_files=4
+2026-04-02 11:29:58 | INFO | app.services.diff_service | related_files_detected path=my_Calculator.py related=[]
+2026-04-02 11:29:58 | INFO | app.services.diff_service | file_change path=my_Calculator.py status=unchanged content_len=736 patch_len=0 related_count=0
+2026-04-02 11:29:58 | INFO | app.services.diff_service | related_files_detected path=policytransaction.py related=['staging_transformations_logic.py']
+2026-04-02 11:29:58 | INFO | app.services.diff_service | file_change path=policytransaction.py status=modified content_len=3139 patch_len=490 related_count=1
+2026-04-02 11:29:58 | INFO | app.services.diff_service | related_files_detected path=staging_transformations_logic.py related=[]
+2026-04-02 11:29:58 | INFO | app.services.diff_service | file_change path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_count=0
+2026-04-02 11:29:58 | INFO | app.services.diff_service | related_files_detected path=todo_manager.py related=[]
+2026-04-02 11:29:58 | INFO | app.services.diff_service | file_change path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_count=0
+2026-04-02 11:29:58 | INFO | app.services.diff_service | repo_files_done total=4
+2026-04-02 11:29:58 | INFO | app.routes | Discovered scripts: 4
+2026-04-02 11:29:58 | INFO | app.routes | Starting documentation pipeline...
+2026-04-02 11:29:58 | INFO | app.routes | Processing [1/4] my_Calculator (status=unchanged)
+2026-04-02 11:29:58 | INFO | app.routes | script_input script=my_Calculator path=my_Calculator.py status=unchanged content_len=736 patch_len=0 related_files=[]
+2026-04-02 11:29:58 | INFO | app.services.confluence_service | confluence_find_found title=My Calculator page_id=19333121
+2026-04-02 11:29:58 | INFO | app.routes | RESULT | script=my_Calculator | status=SKIPPED | reason=already_synced | time=0.25s
+2026-04-02 11:29:58 | INFO | app.routes | Processing [2/4] policytransaction (status=modified)
+2026-04-02 11:29:58 | INFO | app.routes | script_input script=policytransaction path=policytransaction.py status=modified content_len=3139 patch_len=490 related_files=['staging_transformations_logic.py']
+2026-04-02 11:29:59 | INFO | app.services.confluence_service | confluence_find_found title=Policy Transaction page_id=18612225
+2026-04-02 11:29:59 | INFO | app.routes | Running | script=policytransaction | stage=summarizing
+2026-04-02 11:29:59 | INFO | app.services.deepseek_service | LLM_INPUT_START script=policytransaction prompt_len=6931
+2026-04-02 11:29:59 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=policytransaction body=You are generating enterprise engineering documentation for Confluence.
 Return ONLY valid HTML snippet (no markdown fences) using these tags only: h3, h4, p, ul, li, table, thead, tbody, tr, th, td, code, strong.
 Do NOT include full source code dumps, <pre> blocks, or complete function bodies.
 Use inline style attributes on table/th/td to apply a clean blue theme suitable for Confluence: light blue table background, darker blue header row, white header text, subtle borders, readable padding, and alternating row shading.
@@ -708,7 +639,7 @@ If no mapping exists, include one row with N/A values and note why.
 
 Repository: pratikfnu95/autodoc-notebook-poc
 Branch: refs/heads/main
-Commit Range: d010a09b836349d12d5bc5fbc313f6a1f5032327 -> e87391da5b0caeab68cfe91d161e826f164b7065
+Commit Range: 4a2879c6eedf8cb005d4602ef61b86b9bfa30562 -> 4c73ef974abaef634a026ea1376ee3f60b37581f
 
 File Path: policytransaction.py
 Change Type: existing script updated
@@ -736,7 +667,7 @@ stg_df = spark.sql("""
     acc.Producercode_newValue AS producer_code,
     CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
     CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
-    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
+    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
     CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
     pol.State_newValue AS state,
     CASE
@@ -859,24 +790,24 @@ Patch (if available):
      acc.Producercode_newValue AS producer_code,
      CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
      CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
--    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
-+    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
+-    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
++    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
      CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
      pol.State_newValue AS state,
      CASE
-2026-04-02 02:58:47 | INFO | app.services.deepseek_service | LLM_INPUT_END script=policytransaction
-2026-04-02 02:58:47 | INFO | app.services.deepseek_service | deepseek_request_prepare script=policytransaction path=policytransaction.py model=deepseek-chat prompt_len=6931
-2026-04-02 02:58:47 | INFO | app.services.deepseek_service | deepseek_request_attempt script=policytransaction attempt=1/3
-2026-04-02 03:00:19 | INFO | app.services.deepseek_service | deepseek_response_ok script=policytransaction
-2026-04-02 03:00:19 | INFO | app.services.deepseek_service | LLM_RESPONSE script=policytransaction body=<h3>Purpose</h3>
-<p>Stage and deduplicate policy transaction data from XML-flattened source tables, then merge into a downstream mart table. The script transforms raw policy and account data, ensures uniqueness by policy and transaction date, and performs an upsert into the target.</p>
+2026-04-02 11:29:59 | INFO | app.services.deepseek_service | LLM_INPUT_END script=policytransaction
+2026-04-02 11:29:59 | INFO | app.services.deepseek_service | deepseek_request_prepare script=policytransaction path=policytransaction.py model=deepseek-chat prompt_len=6931
+2026-04-02 11:29:59 | INFO | app.services.deepseek_service | deepseek_request_attempt script=policytransaction attempt=1/3
+2026-04-02 11:31:44 | INFO | app.services.deepseek_service | deepseek_response_ok script=policytransaction
+2026-04-02 11:31:44 | INFO | app.services.deepseek_service | LLM_RESPONSE script=policytransaction body=<h3>Purpose</h3>
+<p>Stage and deduplicate policy transaction data from XML-flattened source tables, then merge into a downstream mart table. The script transforms raw policy and account data, ensures uniqueness per policy and transaction date, and performs an upsert into the target.</p>
 
 <h3>High-Level Flow</h3>
-<p>1. Execute dependent notebook <code>staging_transformations_logic</code> to create temporary views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code>.<br>2. Query and join these views to build a staging DataFrame (<code>stg_df</code>) with business logic transformations.<br>3. Apply a window function to deduplicate records, keeping only the latest load per <code>policy_number</code> and <code>transaction_effective_date</code>.<br>4. Create a temporary view <code>vw_policy_transaction_stage</code> from the deduplicated DataFrame.<br>5. Execute a SQL MERGE statement to insert new records or update existing ones in the target table <code>mart.policy_transaction</code>.</p>
+<p>1. Execute dependent notebook <code>staging_transformations_logic</code> to create temporary views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code>.<br>2. Query and join these views to build a staging DataFrame (<code>stg_df</code>) with business logic and casting.<br>3. Apply a window function to deduplicate records, keeping the latest load per <code>policy_number</code> and <code>transaction_effective_date</code>.<br>4. Create a temporary view <code>vw_policy_transaction_stage</code> from the deduplicated DataFrame.<br>5. Execute a SQL MERGE statement to insert or update records in the target table <code>mart.policy_transaction</code>.</p>
 
 <h3>Cross-File Dependencies</h3>
-<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
-<thead style="background-color: #2E5A8C; color: white;">
+<table style="border-collapse: collapse; width: 100%; font-family: sans-serif;">
+<thead style="background-color: #2E5AAC; color: white;">
 <tr>
 <th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Referenced Script</th>
 <th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Relation Type</th>
@@ -886,20 +817,20 @@ Patch (if available):
 </thead>
 <tbody>
 <tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">staging_transformations_logic.py</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">%run execution</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Creates source views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code></td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Script failure if dependent notebook is missing or errors; provides essential input data.</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>staging_transformations_logic.py</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Notebook Execution (<code>%run</code>)</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Creates source views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code> used in the main SQL query.</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Failure or changes in this notebook will break the main script's data sourcing.</td>
 </tr>
 </tbody>
 </table>
 
 <h3>Input/Output Behavior</h3>
-<p><strong>Inputs:</strong> Reads from temporary views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code> (populated by <code>staging_transformations_logic</code>), which source from the <code>policy_xml</code> table.<br><strong>Outputs:</strong> Creates/updates the target table <code>mart.policy_transaction</code>. Also creates an intermediate temporary view <code>vw_policy_transaction_stage</code>.<br><strong>Return:</strong> The script does not explicitly return a value; its side effects are the MERGE operation and temporary view creation.</p>
+<p><strong>Inputs:</strong> Reads from temporary views <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code> (populated by <code>staging_transformations_logic</code>).<br><strong>Processing:</strong> Performs joins, type casting, deduplication via window function <code>row_number()</code> over a partition.<br><strong>Outputs:</strong> Creates temporary view <code>vw_policy_transaction_stage</code> and executes a MERGE into the persistent table <code>mart.policy_transaction</code>.</p>
 
 <h3>Source to Target Mapping</h3>
-<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
-<thead style="background-color: #2E5A8C; color: white;">
+<table style="border-collapse: collapse; width: 100%; font-family: sans-serif;">
+<thead style="background-color: #2E5AAC; color: white;">
 <tr>
 <th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Source Object</th>
 <th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Source Field/Expression</th>
@@ -910,497 +841,106 @@ Patch (if available):
 </thead>
 <tbody>
 <tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">PolicyNumber_newValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Direct mapping, aliased</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">policy_number</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>PolicyNumber_newValue</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>policy_number</code></td>
 </tr>
-<tr style="background-color: #FFFFFF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">PolicyRef_newValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Direct mapping, aliased</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">policy_ref</td>
+<tr style="background-color: white;">
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>PolicyRef_newValue</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>policy_ref</code></td>
 </tr>
 <tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_account_xml_raw (acc)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">AccountNumber_newValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Direct mapping, aliased</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">account_number</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_account_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>AccountNumber_newValue</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>account_number</code></td>
 </tr>
-<tr style="background-color: #FFFFFF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">DeckNumber_newValue</td>
+<tr style="background-color: white;">
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>DeckNumber_newValue</code></td>
 <td style="border: 1px solid #B0C4DE; padding: 8px;">CAST to STRING</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">deck_number</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>deck_number</code></td>
 </tr>
 <tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">TransactionEffectiveDate_newValue</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>TransactionEffectiveDate_newValue</code></td>
 <td style="border: 1px solid #B0C4DE; padding: 8px;">CAST to TIMESTAMP</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">transaction_effective_date</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>transaction_effective_date</code></td>
 </tr>
-<tr style="background-color: #FFFFFF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">WrittenPremium_newValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">CAST to DECIMAL(18,6)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">written_premium</td>
+<tr style="background-color: white;">
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>WrittenPremium_newValue</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">CAST to DECIMAL(18,3)</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>written_premium</code></td>
 </tr>
 <tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">AnnualPremium_newValue</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>AnnualPremium_newValue</code></td>
 <td style="border: 1px solid #B0C4DE; padding: 8px;">CAST to DECIMAL(18,2)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">annual_premium</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>annual_premium</code></td>
 </tr>
-<tr style="background-color: #FFFFFF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">State_newValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Direct mapping, aliased</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">state</td>
+<tr style="background-color: white;">
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>State_newValue</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Aliased</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>state</code></td>
 </tr>
 <tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (pol)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">IsFullyEarned_newValue</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>vw_policy_xml_raw</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>IsFullyEarned_newValue</code></td>
 <td style="border: 1px solid #B0C4DE; padding: 8px;">CASE expression mapping 'Eligible' to Y, else N</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">is_fully_earned_ind</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>is_fully_earned_ind</code></td>
 </tr>
-<tr style="background-color: #FFFFFF;">
+<tr style="background-color: white;">
 <td style="border: 1px solid #B0C4DE; padding: 8px;">Derived</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">pol.WrittenPremium_newValue - pol.WrittenPremium_oldValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Difference of CAST to DECIMAL(18,3) values</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">premium_change_amt</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>WrittenPremium_newValue - WrittenPremium_oldValue</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">Arithmetic subtraction after CAST to DECIMAL(18,3)</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>premium_change_amt</code></td>
 </tr>
 <tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">System Function</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">current_timestamp()</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;">System</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>current_timestamp()</code></td>
 <td style="border: 1px solid #B0C4DE; padding: 8px;">Current timestamp generation</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">mart.policy_transaction</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">load_ts</td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>mart.policy_transaction</code></td>
+<td style="border: 1px solid #B0C4DE; padding: 8px;"><code>load_ts</code></td>
 </tr>
 </tbody>
 </table>
 
 <h3>Recent Change Summary</h3>
-<p>The precision of the <code>written_premium</code> field was increased from <code>DECIMAL(18,3)</code> to <code>DECIMAL(18,6)</code> in the staging SQL SELECT statement. This change allows for higher fractional precision in the written premium amount stored in the staging view and subsequently merged into the target table.</p>
+<p>The precision of the <code>written_premium</code> field was reduced from <code>DECIMAL(18,6)</code> to <code>DECIMAL(18,3)</code> in the CAST expression. This change aligns the staging precision with the target table's expected scale and may truncate fractional cents beyond three decimal places.</p>
 
 <h3>Jira Story Traceability</h3>
 <p>No Jira story references are present in the provided code or commit context.</p>
 
 <h3>Risks / Follow-ups</h3>
-<p><strong>Syntax Error in CASE Expression:</strong> The CASE expression uses unquoted literals <code>Y</code> and <code>N</code> (lines 24-26). These are likely intended to be strings <code>'Y'</code> and <code>'N'</code>. This will cause a runtime error (AnalysisException) due to unresolved column references.<br><strong>Missing Column in INSERT:</strong> The MERGE INSERT clause omits <code>account_number</code> and <code>producer_code</code>, while the UPDATE clause includes <code>account_number</code>. This creates an inconsistency; new records will not have an <code>account_number</code> populated.<br><strong>Data Type Inconsistency:</strong> The <code>premium_change_amt</code> is calculated using <code>DECIMAL(18,3)</code> casting, but the updated <code>written_premium</code> is <code>DECIMAL(18,6)</code>. This may lead to unintended precision loss or calculation mismatches.</p>
-2026-04-02 03:00:19 | INFO | app.routes | Running | script=policytransaction | stage=confluence_publish
-2026-04-02 03:00:19 | INFO | app.services.confluence_service | confluence_upsert_start title=Policy Transaction path=policytransaction.py status=modified summary_len=9729
-2026-04-02 03:00:20 | INFO | app.services.confluence_service | confluence_find_found title=Policy Transaction page_id=18612225
-2026-04-02 03:00:21 | INFO | app.services.confluence_service | confluence_update_ok title=Policy Transaction page_id=18612225
-2026-04-02 03:00:21 | INFO | app.routes | RESULT | script=policytransaction | status=UPDATED | deepseek=91.99s | publish=1.30s | total=93.53s
-2026-04-02 03:00:21 | INFO | app.routes | Processing [2/4] simple_calculator (status=unchanged)
-2026-04-02 03:00:21 | INFO | app.routes | script_input script=simple_calculator path=simple_calculator.py status=unchanged content_len=837 patch_len=0 related_files=[]
-2026-04-02 03:00:21 | INFO | app.services.confluence_service | confluence_find_found title=simple_calculator page_id=327715
-2026-04-02 03:00:21 | INFO | app.routes | RESULT | script=simple_calculator | status=SKIPPED | reason=already_synced | time=0.20s
-2026-04-02 03:00:21 | INFO | app.routes | Processing [3/4] staging_transformations_logic (status=unchanged)
-2026-04-02 03:00:21 | INFO | app.routes | script_input script=staging_transformations_logic path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_files=[]
-2026-04-02 03:00:21 | INFO | app.services.confluence_service | confluence_find_not_found title=staging_transformations_logic
-2026-04-02 03:00:21 | INFO | app.routes | Running | script=staging_transformations_logic | stage=summarizing
-2026-04-02 03:00:21 | INFO | app.services.deepseek_service | LLM_INPUT_START script=staging_transformations_logic prompt_len=3273
-2026-04-02 03:00:21 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=staging_transformations_logic body=You are generating enterprise engineering documentation for Confluence.
-Return ONLY valid HTML snippet (no markdown fences) using these tags only: h3, h4, p, ul, li, table, thead, tbody, tr, th, td, code, strong.
-Do NOT include full source code dumps, <pre> blocks, or complete function bodies.
-Use inline style attributes on table/th/td to apply a clean blue theme suitable for Confluence: light blue table background, darker blue header row, white header text, subtle borders, readable padding, and alternating row shading.
-Keep styling professional and lightweight (no scripts, no external CSS).
-Use this structure exactly:
-- <h3>Purpose</h3>
-- <h3>High-Level Flow</h3>
-- <h3>Cross-File Dependencies</h3> as an HTML table with columns: Referenced Script, Relation Type, Key Usage, Impact
-- <h3>Input/Output Behavior</h3>
-- <h3>Source to Target Mapping</h3> as an HTML table with columns: Source Object, Source Field/Expression, Transformation/Rule, Target Object, Target Field
-- <h3>Recent Change Summary</h3>
-- <h3>Jira Story Traceability</h3>
-- <h3>Risks / Follow-ups</h3>
-Be concrete and technical. Mention exact function names and return behavior.
-For dependency analysis, inspect the main script and all related files provided below.
-In Cross-File Dependencies, include ONLY script/file dependencies (python/notebook files) that are called/imported/executed.
-Do NOT include SQL tables, SQL views, temp views, schemas, databases, or target tables in Cross-File Dependencies.
-Do not duplicate rows in Cross-File Dependencies; keep one row per unique dependency and relation.
-For Risks / Follow-ups, include only issues directly supported by the provided code and patch context.
-Do not speculate, do not invent missing dependencies, and do not add generic risks.
-If no concrete risk is visible in the provided code, output exactly: <p>No concrete risks identified from the provided code.</p>
-For Source to Target Mapping, include SQL SELECT fields, dataframe/variable assignments, and final writes/outputs.
-If no mapping exists, include one row with N/A values and note why.
-
-Repository: pratikfnu95/autodoc-notebook-poc
-Branch: refs/heads/main
-Commit Range: d010a09b836349d12d5bc5fbc313f6a1f5032327 -> e87391da5b0caeab68cfe91d161e826f164b7065
-
-File Path: staging_transformations_logic.py
-Change Type: script documentation sync
-
-Main File Content:
-# Databricks notebook source
-# Databricks notebook
-
-# Step 1: Read raw XML-flattened table
-src_df = spark.sql("""
-    SELECT
-        PolicyNumber_newValue,
-        PolicyRef_newValue,
-        DeckNumber_newValue,
-        TransactionEffectiveDate_newValue,
-        WrittenPremium_newValue,
-        AnnualPremium_newValue,
-        State_newValue,
-        IsFullyEarned_newValue
-    FROM policy_xml
-""")
-
-# Step 2: Create temp view from source dataframe
-src_df.createOrReplaceTempView("vw_policy_xml_raw")
-
-# COMMAND ----------
-
-# Databricks notebook
-
-# Step 1: Read raw XML-flattened table
-src_df2 = spark.sql("""
-    SELECT
-        AccountNumber_newValue,
-        PolicyRef_newValue,
-        Producercode_newValue
-    FROM policy_xml
-""")
-
-# Step 2: Create temp view from source dataframe
-src_df2.createOrReplaceTempView("vw_account_xml_raw")
-
-
-Related File Contents (for cross-file tracing):
-None
-
-Patch (if available):
-
-2026-04-02 03:00:21 | INFO | app.services.deepseek_service | LLM_INPUT_END script=staging_transformations_logic
-2026-04-02 03:00:21 | INFO | app.services.deepseek_service | deepseek_request_prepare script=staging_transformations_logic path=staging_transformations_logic.py model=deepseek-chat prompt_len=3273
-2026-04-02 03:00:21 | INFO | app.services.deepseek_service | deepseek_request_attempt script=staging_transformations_logic attempt=1/3
-2026-04-02 03:01:11 | INFO | app.services.deepseek_service | deepseek_response_ok script=staging_transformations_logic
-2026-04-02 03:01:11 | INFO | app.services.deepseek_service | LLM_RESPONSE script=staging_transformations_logic body=<h3>Purpose</h3>
-<p>This script performs staging transformations by reading flattened XML data from the <code>policy_xml</code> table, selecting specific fields, and creating temporary Spark SQL views for downstream processing. It prepares two distinct views: <code>vw_policy_xml_raw</code> for policy-level data and <code>vw_account_xml_raw</code> for account-level data.</p>
-
-<h3>High-Level Flow</h3>
-<ol>
-<li>Execute Spark SQL query to select policy-related fields (<code>PolicyNumber_newValue</code>, <code>PolicyRef_newValue</code>, <code>DeckNumber_newValue</code>, <code>TransactionEffectiveDate_newValue</code>, <code>WrittenPremium_newValue</code>, <code>AnnualPremium_newValue</code>, <code>State_newValue</code>, <code>IsFullyEarned_newValue</code>) from the <code>policy_xml</code> table.</li>
-<li>Create a temporary view named <code>vw_policy_xml_raw</code> from the resulting DataFrame.</li>
-<li>Execute a second Spark SQL query to select account-related fields (<code>AccountNumber_newValue</code>, <code>PolicyRef_newValue</code>, <code>Producercode_newValue</code>) from the same <code>policy_xml</code> table.</li>
-<li>Create a temporary view named <code>vw_account_xml_raw</code> from the second DataFrame.</li>
-</ol>
-
-<h3>Cross-File Dependencies</h3>
-<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
-<thead style="background-color: #2E5A8C; color: white;">
-<tr>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Referenced Script</th>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Relation Type</th>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Key Usage</th>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Impact</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">None</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">N/A</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">No Python/Notebook imports or calls detected.</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Script operates independently; no external script dependencies.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Input/Output Behavior</h3>
-<p><strong>Input:</strong> Reads from the <code>policy_xml</code> table (presumably a Delta/Spark table containing flattened XML data).</p>
-<p><strong>Output:</strong> Creates two temporary Spark SQL views: <code>vw_policy_xml_raw</code> and <code>vw_account_xml_raw</code>. These views are not persisted to storage and exist only for the duration of the Spark session, enabling SQL queries in subsequent notebook cells or jobs.</p>
-<p><strong>Return:</strong> The script does not define explicit functions; it executes Spark transformations imperatively. The final operation returns a <code>DataFrame</code> (for each query) but primarily creates temporary views as side effects.</p>
-
-<h3>Source to Target Mapping</h3>
-<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
-<thead style="background-color: #2E5A8C; color: white;">
-<tr>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Source Object</th>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Source Field/Expression</th>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Transformation/Rule</th>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Target Object</th>
-<th style="border: 1px solid #B0C4DE; padding: 8px; text-align: left;">Target Field</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background-color: #F0F8FF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">PolicyNumber_newValue, PolicyRef_newValue, DeckNumber_newValue, TransactionEffectiveDate_newValue, WrittenPremium_newValue, AnnualPremium_newValue, State_newValue, IsFullyEarned_newValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Direct selection, no transformation applied.</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_policy_xml_raw (temp view)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Same as source fields.</td>
-</tr>
-<tr style="background-color: #FFFFFF;">
-<td style="border: 1px solid #B0C4DE; padding: 8px;">policy_xml table</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">AccountNumber_newValue, PolicyRef_newValue, Producercode_newValue</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Direct selection, no transformation applied.</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">vw_account_xml_raw (temp view)</td>
-<td style="border: 1px solid #B0C4DE; padding: 8px;">Same as source fields.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Recent Change Summary</h3>
-<p>This documentation sync reflects the current state of <code>staging_transformations_logic.py</code>. The script contains two independent blocks that read from the same source table (<code>policy_xml</code>) but create separate temporary views for policy and account data. No functional changes are indicated in the provided commit range; the update appears to be for documentation alignment.</p>
-
-<h3>Jira Story Traceability</h3>
-<p>No Jira story references are embedded in the provided code or context.</p>
-
-<h3>Risks / Follow-ups</h3>
-<p>No concrete risks identified from the provided code.</p>
-2026-04-02 03:01:11 | INFO | app.routes | Running | script=staging_transformations_logic | stage=confluence_publish
-2026-04-02 03:01:11 | INFO | app.services.confluence_service | confluence_upsert_start title=Staging Transformations Logic path=staging_transformations_logic.py status=unchanged summary_len=5407
-2026-04-02 03:01:11 | INFO | app.services.confluence_service | confluence_find_found title=Staging Transformations Logic page_id=18350089
-2026-04-02 03:01:12 | INFO | app.services.confluence_service | confluence_update_ok title=Staging Transformations Logic page_id=18350089
-2026-04-02 03:01:12 | INFO | app.routes | RESULT | script=staging_transformations_logic | status=UPDATED | deepseek=50.02s | publish=1.02s | total=51.26s
-2026-04-02 03:01:12 | INFO | app.routes | Processing [4/4] todo_manager (status=unchanged)
-2026-04-02 03:01:12 | INFO | app.routes | script_input script=todo_manager path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_files=[]
-2026-04-02 03:01:12 | INFO | app.services.confluence_service | confluence_find_found title=todo_manager page_id=622596
-2026-04-02 03:01:12 | INFO | app.routes | RESULT | script=todo_manager | status=SKIPPED | reason=already_synced | time=0.19s
-2026-04-02 03:01:12 | INFO | app.routes | 
-2026-04-02 03:01:12 | INFO | app.routes | RUN SUMMARY | pending_review=0 | updated=2 | deleted=0 | skipped=2 | failed=0 | total_time=146.39s
-2026-04-02 03:01:12 | INFO | app.routes | === Autodoc Run Complete ===
-2026-04-02 03:20:37 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.0.0.53:5000
-2026-04-02 03:20:37 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
-2026-04-02 03:20:37 | INFO | werkzeug |  * Restarting with stat
-2026-04-02 03:20:37 | WARNING | werkzeug |  * Debugger is active!
-2026-04-02 03:20:37 | INFO | werkzeug |  * Debugger PIN: 104-369-235
-2026-04-02 03:21:10 | INFO | app.routes | webhook_received event=push delivery_id=90ace0c6-2e2c-11f1-9d2c-1256d3cac761 body_len=8875
-2026-04-02 03:21:10 | INFO | app.routes | signature_validation_start allow_unsigned=False has_secret=True signature_present=True body_len=8875
-2026-04-02 03:21:10 | INFO | app.routes | signature_validation_result valid=True
-2026-04-02 03:21:10 | INFO | app.routes | payload_parse=json_body keys=['after', 'base_ref', 'before', 'commits', 'compare', 'created', 'deleted', 'forced', 'head_commit', 'pusher', 'ref', 'repository', 'sender']
-2026-04-02 03:21:10 | INFO | app.routes | github_payload_full={"ref": "refs/heads/main", "before": "d010a09b836349d12d5bc5fbc313f6a1f5032327", "after": "e87391da5b0caeab68cfe91d161e826f164b7065", "repository": {"id": 1151765131, "node_id": "R_kgDORKaKiw", "name": "autodoc-notebook-poc", "full_name": "pratikfnu95/autodoc-notebook-poc", "private": false, "owner": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "html_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "description": null, "fork": false, "url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc", "forks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/forks", "keys_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/keys{/key_id}", "collaborators_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/collaborators{/collaborator}", "teams_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/teams", "hooks_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/hooks", "issue_events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/events{/number}", "events_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/events", "assignees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/assignees{/user}", "branches_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/branches{/branch}", "tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/tags", "blobs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/blobs{/sha}", "git_tags_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/tags{/sha}", "git_refs_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/refs{/sha}", "trees_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/trees{/sha}", "statuses_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/statuses/{sha}", "languages_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/languages", "stargazers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/stargazers", "contributors_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contributors", "subscribers_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscribers", "subscription_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/subscription", "commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/commits{/sha}", "git_commits_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/git/commits{/sha}", "comments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/comments{/number}", "issue_comment_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues/comments{/number}", "contents_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/contents/{+path}", "compare_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/compare/{base}...{head}", "merges_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/merges", "archive_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/{archive_format}{/ref}", "downloads_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/downloads", "issues_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/issues{/number}", "pulls_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/pulls{/number}", "milestones_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/milestones{/number}", "notifications_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/notifications{?since,all,participating}", "labels_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/labels{/name}", "releases_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/releases{/id}", "deployments_url": "https://api.github.com/repos/pratikfnu95/autodoc-notebook-poc/deployments", "created_at": 1770414456, "updated_at": "2026-04-02T00:01:43Z", "pushed_at": 1775090435, "git_url": "git://github.com/pratikfnu95/autodoc-notebook-poc.git", "ssh_url": "git@github.com:pratikfnu95/autodoc-notebook-poc.git", "clone_url": "https://github.com/pratikfnu95/autodoc-notebook-poc.git", "svn_url": "https://github.com/pratikfnu95/autodoc-notebook-poc", "homepage": null, "size": 31, "stargazers_count": 0, "watchers_count": 0, "language": "Python", "has_issues": true, "has_projects": true, "has_downloads": true, "has_wiki": true, "has_pages": false, "has_discussions": false, "forks_count": 0, "mirror_url": null, "archived": false, "disabled": false, "open_issues_count": 0, "license": null, "allow_forking": true, "is_template": false, "web_commit_signoff_required": false, "has_pull_requests": true, "pull_request_creation_policy": "all", "topics": [], "visibility": "public", "forks": 0, "open_issues": 0, "watchers": 0, "default_branch": "main", "stargazers": 0, "master_branch": "main"}, "pusher": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com"}, "forced": false, "sender": {"login": "pratikfnu95", "id": 258352096, "node_id": "U_kgDOD2Yj4A", "avatar_url": "https://avatars.githubusercontent.com/u/258352096?v=4", "gravatar_id": "", "url": "https://api.github.com/users/pratikfnu95", "html_url": "https://github.com/pratikfnu95", "followers_url": "https://api.github.com/users/pratikfnu95/followers", "following_url": "https://api.github.com/users/pratikfnu95/following{/other_user}", "gists_url": "https://api.github.com/users/pratikfnu95/gists{/gist_id}", "starred_url": "https://api.github.com/users/pratikfnu95/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/pratikfnu95/subscriptions", "organizations_url": "https://api.github.com/users/pratikfnu95/orgs", "repos_url": "https://api.github.com/users/pratikfnu95/repos", "events_url": "https://api.github.com/users/pratikfnu95/events{/privacy}", "received_events_url": "https://api.github.com/users/pratikfnu95/received_events", "type": "User", "user_view_type": "public", "site_admin": false}, "created": false, "deleted": false, "base_ref": null, "compare": "https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c", "commits": [{"id": "99759643d29beb961218d440c1c8cf04787bd498", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": false, "message": "check444", "timestamp": "2026-04-02T00:40:19Z", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/99759643d29beb961218d440c1c8cf04787bd498", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "committer": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-02T00:40:19Z", "username": "pratikfnu95"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}, {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}], "head_commit": {"id": "e87391da5b0caeab68cfe91d161e826f164b7065", "tree_id": "82adf923037cf61b4417f8b78caa6cc21e56175f", "distinct": true, "message": "Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444", "timestamp": "2026-04-01T20:40:34-04:00", "url": "https://github.com/pratikfnu95/autodoc-notebook-poc/commit/e87391da5b0caeab68cfe91d161e826f164b7065", "author": {"name": "pratikfnu95", "email": "pratikfnu@gmail.com", "date": "2026-04-01T20:40:34-04:00", "username": "pratikfnu95"}, "committer": {"name": "GitHub", "email": "noreply@github.com", "date": "2026-04-01T20:40:34-04:00", "username": "web-flow"}, "added": [], "removed": [], "modified": ["policytransaction.py"]}}
-2026-04-02 03:21:10 | INFO | app.services.github_service | github_context repo=pratikfnu95/autodoc-notebook-poc ref=refs/heads/main before=d010a09b836349d12d5bc5fbc313f6a1f5032327 after=e87391da5b0caeab68cfe91d161e826f164b7065 source_branch=KAN-7 jira=KAN-7
-2026-04-02 03:21:10 | INFO | app.routes | context_extracted={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
-2026-04-02 03:21:10 | INFO | app.routes | process_push_event_started context={'is_main_branch': True, 'ref': 'refs/heads/main', 'before': 'd010a09b836349d12d5bc5fbc313f6a1f5032327', 'after': 'e87391da5b0caeab68cfe91d161e826f164b7065', 'owner': 'pratikfnu95', 'repo': 'autodoc-notebook-poc', 'repo_full_name': 'pratikfnu95/autodoc-notebook-poc', 'pusher': 'pratikfnu95', 'compare_url': 'https://github.com/pratikfnu95/autodoc-notebook-poc/compare/d010a09b8363...e87391da5b0c', 'head_commit_message': 'Merge pull request #17 from pratikfnu95/KAN-7\n\ncheck444', 'source_branch': 'KAN-7', 'jira_ticket_id': 'KAN-7', 'jira_ticket_url': 'https://pratikfnu.atlassian.net/browse/KAN-7', 'delivery_id': '90ace0c6-2e2c-11f1-9d2c-1256d3cac761'}
-2026-04-02 03:21:10 | INFO | werkzeug | 127.0.0.1 - - [02/Apr/2026 03:21:10] "[35m[1mPOST /webhook/github HTTP/1.1[0m" 202 -
-2026-04-02 03:21:10 | INFO | app.routes | 
-2026-04-02 03:21:10 | INFO | app.routes | === Autodoc Run Start ===
-2026-04-02 03:21:10 | INFO | app.routes | Repo: pratikfnu95/autodoc-notebook-poc
-2026-04-02 03:21:10 | INFO | app.routes | Branch: refs/heads/main
-2026-04-02 03:21:10 | INFO | app.routes | Source branch: KAN-7
-2026-04-02 03:21:10 | INFO | app.routes | Jira ticket: KAN-7
-2026-04-02 03:21:10 | INFO | app.routes | Scanning python files and commit diff...
-2026-04-02 03:21:11 | INFO | app.services.diff_service | github_compare_parsed base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 python_changed=1
-2026-04-02 03:21:11 | INFO | app.services.diff_service | github_tree_parsed ref=e87391da5b0caeab68cfe91d161e826f164b7065 python_total=4
-2026-04-02 03:21:11 | INFO | app.services.diff_service | repo_files_start repo=pratikfnu95/autodoc-notebook-poc base=d010a09b836349d12d5bc5fbc313f6a1f5032327 head=e87391da5b0caeab68cfe91d161e826f164b7065 compare_map=1 current_files=4
-2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=policytransaction.py related=['staging_transformations_logic.py']
-2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=policytransaction.py status=modified content_len=3139 patch_len=490 related_count=1
-2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=simple_calculator.py related=[]
-2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=simple_calculator.py status=unchanged content_len=837 patch_len=0 related_count=0
-2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=staging_transformations_logic.py related=[]
-2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_count=0
-2026-04-02 03:21:12 | INFO | app.services.diff_service | related_files_detected path=todo_manager.py related=[]
-2026-04-02 03:21:12 | INFO | app.services.diff_service | file_change path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_count=0
-2026-04-02 03:21:12 | INFO | app.services.diff_service | repo_files_done total=4
-2026-04-02 03:21:12 | INFO | app.routes | Discovered scripts: 4
-2026-04-02 03:21:12 | INFO | app.routes | Starting documentation pipeline...
-2026-04-02 03:21:12 | INFO | app.routes | Processing [1/4] policytransaction (status=modified)
-2026-04-02 03:21:12 | INFO | app.routes | script_input script=policytransaction path=policytransaction.py status=modified content_len=3139 patch_len=490 related_files=['staging_transformations_logic.py']
-2026-04-02 03:21:12 | INFO | app.services.confluence_service | confluence_find_not_found title=policytransaction
-2026-04-02 03:21:12 | INFO | app.routes | Running | script=policytransaction | stage=summarizing
-2026-04-02 03:21:12 | INFO | app.services.deepseek_service | LLM_INPUT_START script=policytransaction prompt_len=6931
-2026-04-02 03:21:12 | INFO | app.services.deepseek_service | LLM_INPUT_BODY script=policytransaction body=You are generating enterprise engineering documentation for Confluence.
-Return ONLY valid HTML snippet (no markdown fences) using these tags only: h3, h4, p, ul, li, table, thead, tbody, tr, th, td, code, strong.
-Do NOT include full source code dumps, <pre> blocks, or complete function bodies.
-Use inline style attributes on table/th/td to apply a clean blue theme suitable for Confluence: light blue table background, darker blue header row, white header text, subtle borders, readable padding, and alternating row shading.
-Keep styling professional and lightweight (no scripts, no external CSS).
-Use this structure exactly:
-- <h3>Purpose</h3>
-- <h3>High-Level Flow</h3>
-- <h3>Cross-File Dependencies</h3> as an HTML table with columns: Referenced Script, Relation Type, Key Usage, Impact
-- <h3>Input/Output Behavior</h3>
-- <h3>Source to Target Mapping</h3> as an HTML table with columns: Source Object, Source Field/Expression, Transformation/Rule, Target Object, Target Field
-- <h3>Recent Change Summary</h3>
-- <h3>Jira Story Traceability</h3>
-- <h3>Risks / Follow-ups</h3>
-Be concrete and technical. Mention exact function names and return behavior.
-For dependency analysis, inspect the main script and all related files provided below.
-In Cross-File Dependencies, include ONLY script/file dependencies (python/notebook files) that are called/imported/executed.
-Do NOT include SQL tables, SQL views, temp views, schemas, databases, or target tables in Cross-File Dependencies.
-Do not duplicate rows in Cross-File Dependencies; keep one row per unique dependency and relation.
-For Risks / Follow-ups, include only issues directly supported by the provided code and patch context.
-Do not speculate, do not invent missing dependencies, and do not add generic risks.
-If no concrete risk is visible in the provided code, output exactly: <p>No concrete risks identified from the provided code.</p>
-For Source to Target Mapping, include SQL SELECT fields, dataframe/variable assignments, and final writes/outputs.
-If no mapping exists, include one row with N/A values and note why.
-
-Repository: pratikfnu95/autodoc-notebook-poc
-Branch: refs/heads/main
-Commit Range: d010a09b836349d12d5bc5fbc313f6a1f5032327 -> e87391da5b0caeab68cfe91d161e826f164b7065
-
-File Path: policytransaction.py
-Change Type: existing script updated
-
-Main File Content:
-# Databricks notebook source
-# databricks notebook - stage policy transaction data 
-
-from pyspark.sql import functions as F
-from pyspark.sql.window import Window
-import re
-
-# COMMAND ----------
-
-# DBTITLE 1,dependent file
-# MAGIC %run ./staging_transformations_logic
-
-# COMMAND ----------
-
-stg_df = spark.sql("""
-    SELECT
-    pol.PolicyNumber_newValue AS policy_number,
-    pol.PolicyRef_newValue AS policy_ref,
-    acc.AccountNumber_newValue AS account_number,
-    acc.Producercode_newValue AS producer_code,
-    CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
-    CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
-    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
-    CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
-    pol.State_newValue AS state,
-    CASE
-        WHEN pol.IsFullyEarned_newValue = 'Eligible' THEN Y
-        ELSE N
-    END AS is_fully_earned_ind,
-    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) -
-    CAST(pol.WrittenPremium_oldValue AS DECIMAL(18,3)) AS premium_change_amt,
-    current_timestamp() AS load_ts
-    FROM vw_policy_xml_raw pol
-    LEFT JOIN vw_account_xml_raw acc
-        ON pol.PolicyRef_newValue = acc.PolicyRef_newValue;
-""")
-
-# Step 3: Deduplicate latest record by policy and transaction date
-window_spec = (
-    Window
-    .partitionBy("policy_number", "transaction_effective_date")
-    .orderBy(F.col("load_ts").desc())
-)
-
-final_df = (
-    stg_df
-    .withColumn("rn", F.row_number().over(window_spec))
-    .filter(F.col("rn") == 1)
-    .drop("rn")
-)
-
-final_df.createOrReplaceTempView("vw_policy_transaction_stage")
-
-
-
-# COMMAND ----------
-
-# MAGIC  %sql
-# MAGIC  -- Step 4: Insert or merge into downstream transaction table
-# MAGIC  MERGE INTO mart.policy_transaction t
-# MAGIC  USING vw_policy_transaction_stage s
-# MAGIC  ON t.policy_number = s.policy_number
-# MAGIC  AND t.transaction_effective_date = s.transaction_effective_date
-# MAGIC  WHEN MATCHED THEN
-# MAGIC    UPDATE SET
-# MAGIC      t.policy_ref = s.policy_ref,
-# MAGIC      t.deck_number = s.deck_number,
-# MAGIC      t.account_number = s.account_number,
-# MAGIC      t.written_premium = s.written_premium,
-# MAGIC      t.annual_premium = s.annual_premium,
-# MAGIC      t.premium_change_amt = s.premium_change_amt,
-# MAGIC      t.state = s.state,
-# MAGIC      t.is_fully_earned_ind = s.is_fully_earned_ind,
-# MAGIC      t.load_ts = s.load_ts
-# MAGIC  WHEN NOT MATCHED THEN
-# MAGIC    INSERT (
-# MAGIC      policy_number,
-# MAGIC      policy_ref,
-# MAGIC      deck_number,
-# MAGIC      transaction_effective_date,
-# MAGIC      written_premium,
-# MAGIC      annual_premium,
-# MAGIC      premium_change_amt,
-# MAGIC      state,
-# MAGIC      is_fully_earned_ind,
-# MAGIC      load_ts
-# MAGIC    )
-# MAGIC    VALUES (
-# MAGIC      s.policy_number,
-# MAGIC      s.policy_ref,
-# MAGIC      s.deck_number,
-# MAGIC      s.transaction_effective_date,
-# MAGIC      s.written_premium,
-# MAGIC      s.annual_premium,
-# MAGIC      s.premium_change_amt,
-# MAGIC      s.state,
-# MAGIC      s.is_fully_earned_ind,
-# MAGIC      s.load_ts
-# MAGIC    )
-
-
-Related File Contents (for cross-file tracing):
-Related File: staging_transformations_logic.py
-# Databricks notebook source
-# Databricks notebook
-
-# Step 1: Read raw XML-flattened table
-src_df = spark.sql("""
-    SELECT
-        PolicyNumber_newValue,
-        PolicyRef_newValue,
-        DeckNumber_newValue,
-        TransactionEffectiveDate_newValue,
-        WrittenPremium_newValue,
-        AnnualPremium_newValue,
-        State_newValue,
-        IsFullyEarned_newValue
-    FROM policy_xml
-""")
-
-# Step 2: Create temp view from source dataframe
-src_df.createOrReplaceTempView("vw_policy_xml_raw")
-
-# COMMAND ----------
-
-# Databricks notebook
-
-# Step 1: Read raw XML-flattened table
-src_df2 = spark.sql("""
-    SELECT
-        AccountNumber_newValue,
-        PolicyRef_newValue,
-        Producercode_newValue
-    FROM policy_xml
-""")
-
-# Step 2: Create temp view from source dataframe
-src_df2.createOrReplaceTempView("vw_account_xml_raw")
-
-
-Patch (if available):
-@@ -20,7 +20,7 @@
-     acc.Producercode_newValue AS producer_code,
-     CAST(pol.DeckNumber_newValue AS STRING) AS deck_number,
-     CAST(pol.TransactionEffectiveDate_newValue AS TIMESTAMP) AS transaction_effective_date,
--    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,3)) AS written_premium,
-+    CAST(pol.WrittenPremium_newValue AS DECIMAL(18,6)) AS written_premium,
-     CAST(pol.AnnualPremium_newValue AS DECIMAL(18,2)) AS annual_premium,
-     pol.State_newValue AS state,
-     CASE
-2026-04-02 03:21:12 | INFO | app.services.deepseek_service | LLM_INPUT_END script=policytransaction
-2026-04-02 03:21:12 | INFO | app.services.deepseek_service | deepseek_request_prepare script=policytransaction path=policytransaction.py model=deepseek-chat prompt_len=6931
-2026-04-02 03:21:12 | INFO | app.services.deepseek_service | deepseek_request_attempt script=policytransaction attempt=1/3
+<p><strong>Syntax Error in CASE Expression:</strong> The CASE expression for <code>is_fully_earned_ind</code> uses unquoted literals <code>Y</code> and <code>N</code> (lines 20-22). This will cause a runtime error; they should be string literals <code>'Y'</code> and <code>'N'</code>.<br><strong>Missing Producer Code in MERGE:</strong> The column <code>producer_code</code> is selected in the staging query but is not included in the MERGE's UPDATE or INSERT column lists, causing data loss for this field.<br><strong>Hardcoded Table Dependency:</strong> The MERGE statement directly references <code>mart.policy_transaction</code> without schema/table validation, risking failure if the target does not exist or lacks permissions.</p>
+2026-04-02 11:31:44 | INFO | app.routes | Running | script=policytransaction | stage=confluence_publish
+2026-04-02 11:31:44 | INFO | app.services.confluence_service | confluence_upsert_start title=Policy Transaction path=policytransaction.py status=modified summary_len=9900
+2026-04-02 11:31:44 | INFO | app.services.confluence_service | confluence_find_found title=Policy Transaction page_id=18612225
+2026-04-02 11:31:45 | INFO | app.services.confluence_service | confluence_update_ok title=Policy Transaction page_id=18612225
+2026-04-02 11:31:45 | INFO | app.routes | RESULT | script=policytransaction | status=UPDATED | deepseek=105.39s | publish=1.07s | total=106.65s
+2026-04-02 11:31:45 | INFO | app.routes | Processing [3/4] staging_transformations_logic (status=unchanged)
+2026-04-02 11:31:45 | INFO | app.routes | script_input script=staging_transformations_logic path=staging_transformations_logic.py status=unchanged content_len=842 patch_len=0 related_files=[]
+2026-04-02 11:31:45 | INFO | app.services.confluence_service | confluence_find_found title=Staging Transformations Logic page_id=18350089
+2026-04-02 11:31:45 | INFO | app.routes | RESULT | script=staging_transformations_logic | status=SKIPPED | reason=already_synced | time=0.17s
+2026-04-02 11:31:45 | INFO | app.routes | Processing [4/4] todo_manager (status=unchanged)
+2026-04-02 11:31:45 | INFO | app.routes | script_input script=todo_manager path=todo_manager.py status=unchanged content_len=1442 patch_len=0 related_files=[]
+2026-04-02 11:31:45 | INFO | app.services.confluence_service | confluence_find_found title=Todo Manager page_id=18120715
+2026-04-02 11:31:45 | INFO | app.routes | RESULT | script=todo_manager | status=SKIPPED | reason=already_synced | time=0.19s
+2026-04-02 11:31:45 | INFO | app.routes | 
+2026-04-02 11:31:45 | INFO | app.routes | RUN SUMMARY | pending_review=0 | updated=1 | deleted=0 | skipped=3 | failed=0 | total_time=108.50s
+2026-04-02 11:31:45 | INFO | app.routes | === Autodoc Run Complete ===

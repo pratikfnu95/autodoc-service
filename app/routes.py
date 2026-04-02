@@ -10,7 +10,7 @@ from app.config import Config
 from app.services.github_service import extract_push_context
 from app.services.diff_service import get_repository_python_files
 from app.services.deepseek_service import generate_script_summary
-from app.services.confluence_service import get_script_page, upsert_script_page
+from app.services.confluence_service import get_script_page_for_change, upsert_script_page
 
 
 webhook_bp = Blueprint("webhook", __name__)
@@ -71,7 +71,7 @@ def process_push_event(context: dict) -> None:
                 len(file_change.get("patch", "")),
                 [i.get("path", "") for i in file_change.get("related_files", [])],
             )
-            existing_page = get_script_page(script_name)
+            existing_page = get_script_page_for_change(file_change)
 
             if status == "unchanged" and existing_page:
                 elapsed_ms = (time.perf_counter() - script_start) * 1000

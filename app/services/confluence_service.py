@@ -811,6 +811,13 @@ def get_script_page(script_name: str) -> dict | None:
     return _find_existing_page(title=script_name, headers=_auth_headers())
 
 
+def get_script_page_for_change(file_change: dict) -> dict | None:
+    if not (Config.CONFLUENCE_BASE_URL and Config.CONFLUENCE_EMAIL and Config.CONFLUENCE_API_TOKEN and Config.CONFLUENCE_SPACE_KEY):
+        return None
+    title = _humanize_script_title(file_change)
+    return _find_existing_page(title=title, headers=_auth_headers())
+
+
 def upsert_script_page(summary: str, context: dict, file_change: dict) -> dict:
     if not (Config.CONFLUENCE_BASE_URL and Config.CONFLUENCE_EMAIL and Config.CONFLUENCE_API_TOKEN and Config.CONFLUENCE_SPACE_KEY):
         return {"status": "skipped", "reason": "Confluence config missing"}
